@@ -1,0 +1,427 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>💻 Б13: BioPython за предвидување на секундарна структура &#8212; Лабораториска вежба Биоинформатика</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script async="async" kind="hypothesis" src="https://hypothes.is/embed.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="💻 Б12: Имплементација на Nussinov функција" href="B12.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Лабораториска вежба Биоинформатика</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Вовед
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Лабораториска вежба
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="B01.html">
+   Б1: Парсирање на фајлови
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="B02.html">
+   Б2: Поврзување со биолошки бази
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="B03.html">
+   Б3: Seq објекти
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="B04.html">
+   Б4: Yersinia pestis ДНА секвенца
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="B05.html">
+   Б5: Репликација на секвенца
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="B06.html">
+   Б6: Пронаоѓање на сите CDS
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="B07.html">
+   Б7: Старт/стоп кодони во произволен CDS
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="B08.html">
+   Б8: Транслација на секвенца
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="B09.html">
+   Б9: Мутација на секвенца
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="B10.html">
+   Б10: Креирање на FASTA фајл
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="B11.html">
+   Б11: Предвидување на структурата на оперон со SVM
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="B12.html">
+   Б12: Имплементација на Nussinov функција
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Б13: BioPython за предвидување на секундарна структура
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Екстерни линкови
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference external" href="https://colab.research.google.com/drive/1awuAkJtHOMPezHostnGHZ8sTpMXEDhCI?usp=sharing">
+   Google colab
+   <i class="fas fa-external-link-alt">
+   </i>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference external" href="https://github.com/zelenkastiot/bio_lab">
+   GitHub репозиториум
+   <i class="fas fa-external-link-alt">
+   </i>
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/lab_notebooks/B13.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/zelenkastiot/bio_lab"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/zelenkastiot/bio_lab/issues/new?title=Issue%20on%20page%20%2Flab_notebooks/B13.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/zelenkastiot/bio_lab/edit/main/lab_notebooks/B13.ipynb"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/zelenkastiot/bio_lab/main?urlpath=lab/tree/lab_notebooks/B13.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/drive/1awuAkJtHOMPezHostnGHZ8sTpMXEDhCI?usp=sharing/github/zelenkastiot/bio_lab/blob/main/lab_notebooks/B13.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id1">
+   11.6.9  Одредување на секундарната структура
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="biopython">
+<h1>💻 Б13: BioPython за предвидување на секундарна структура<a class="headerlink" href="#biopython" title="Permalink to this headline">¶</a></h1>
+<div class="tip admonition">
+<p class="admonition-title">Опис на барање</p>
+<p>Да се истражи можноста на biopython за одредување на
+секундарна структура опишана во поглавје 11.6.9</p>
+</div>
+<div class="section" id="id1">
+<h2>11.6.9  Одредување на секундарната структура<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>За оваа функционалност која библиотеката <strong>BioPython</strong> ја нуди, нужно е да се инсталира DSSP (и да се најде лиценца за истото - бесплатна за академски мејлови, <a class="reference external" href="https://swift.cmbi.umcn.nl/gv/dssp/">https://swift.cmbi.umcn.nl/gv/dssp/</a>). Потоа се користи DSSP класа, која мапира <code>Residue </code> објекти на нивната секундарна структура (и достапната секундарна површина). DSSP кодовите се прикажни во табелата 11.2. DSSP не може да се справи со повеќе модели може само еден да парсира.</p>
+<div class="figure align-center" id="dssp-table">
+<a class="reference internal image-reference" href="../_images/table11.2.png"><img alt="../_images/table11.2.png" src="../_images/table11.2.png" style="width: 25%;" /></a>
+<p class="caption"><span class="caption-number">Fig. 7 </span><span class="caption-text">DSSP кодови во Bio.PDB</span><a class="headerlink" href="#dssp-table" title="Permalink to this image">¶</a></p>
+</div>
+<p>DSSP класата исто така може да служи за пресметка на достапната површина и тоа е во поглавје 11.6.10.</p>
+<p><strong>Пример за приказ на PDB parser</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">Bio</span> <span class="kn">import</span> <span class="n">MissingExternalDependencyError</span>
+<span class="kn">from</span> <span class="nn">Bio.PDB</span> <span class="kn">import</span> <span class="n">PDBParser</span><span class="p">,</span> <span class="n">MMCIFParser</span>
+<span class="kn">from</span> <span class="nn">Bio.PDB</span> <span class="kn">import</span> <span class="n">DSSP</span>
+
+<span class="c1"># Miller (procedure similar as for the Sander values above):</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">PDBParser</span><span class="p">()</span>
+<span class="n">s</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">get_structure</span><span class="p">(</span><span class="s2">&quot;example&quot;</span><span class="p">,</span> <span class="s2">&quot;PDB/2BEG.pdb&quot;</span><span class="p">)</span>
+<span class="n">m</span> <span class="o">=</span> <span class="n">s</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">_</span> <span class="o">=</span> <span class="n">DSSP</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="s2">&quot;PDB/2BEG.dssp&quot;</span><span class="p">,</span> <span class="s2">&quot;dssp&quot;</span><span class="p">,</span> <span class="s2">&quot;Miller&quot;</span><span class="p">,</span> <span class="s2">&quot;DSSP&quot;</span><span class="p">)</span>
+<span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;PDB/Miller_RASA.txt&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fh_ref</span><span class="p">:</span>
+    <span class="n">ref_lines</span> <span class="o">=</span> <span class="n">fh_ref</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">chain</span> <span class="ow">in</span> <span class="n">m</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">res</span> <span class="ow">in</span> <span class="n">chain</span><span class="p">:</span>
+            <span class="n">rasa_ref</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">ref_lines</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">rstrip</span><span class="p">())</span>
+            <span class="n">rasa</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">xtra</span><span class="p">[</span><span class="s2">&quot;EXP_DSSP_RASA&quot;</span><span class="p">])</span>
+            <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">nglview</span> <span class="k">as</span> <span class="nn">nv</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span>
+
+<span class="n">view_example</span> <span class="o">=</span>  <span class="n">nv</span><span class="o">.</span><span class="n">show_biopython</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">view_example</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "542ba0c9763c403b9e27f41e20697c7c", "version_major": 2, "version_minor": 0}
+</script></div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "zelenkastiot/bio_lab",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./lab_notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="B12.html" title="previous page">💻 Б12: Имплементација на Nussinov функција</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Кирил Зеленковски<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>

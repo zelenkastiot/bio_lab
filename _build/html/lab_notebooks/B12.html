@@ -1,0 +1,634 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>💻 Б12: Имплементација на Nussinov функција &#8212; Лабораториска вежба Биоинформатика</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script async="async" kind="hypothesis" src="https://hypothes.is/embed.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="💻 Б13: BioPython за предвидување на секундарна структура" href="B13.html" />
+    <link rel="prev" title="💻 Б11: Предвидување на структурата на оперон со SVM" href="B11.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Лабораториска вежба Биоинформатика</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Вовед
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Лабораториска вежба
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="B01.html">
+   Б1: Парсирање на фајлови
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="B02.html">
+   Б2: Поврзување со биолошки бази
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="B03.html">
+   Б3: Seq објекти
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="B04.html">
+   Б4: Yersinia pestis ДНА секвенца
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="B05.html">
+   Б5: Репликација на секвенца
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="B06.html">
+   Б6: Пронаоѓање на сите CDS
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="B07.html">
+   Б7: Старт/стоп кодони во произволен CDS
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="B08.html">
+   Б8: Транслација на секвенца
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="B09.html">
+   Б9: Мутација на секвенца
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="B10.html">
+   Б10: Креирање на FASTA фајл
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="B11.html">
+   Б11: Предвидување на структурата на оперон со SVM
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Б12: Имплементација на Nussinov функција
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="B13.html">
+   Б13: BioPython за предвидување на секундарна структура
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Екстерни линкови
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference external" href="https://colab.research.google.com/drive/1awuAkJtHOMPezHostnGHZ8sTpMXEDhCI?usp=sharing">
+   Google colab
+   <i class="fas fa-external-link-alt">
+   </i>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference external" href="https://github.com/zelenkastiot/bio_lab">
+   GitHub репозиториум
+   <i class="fas fa-external-link-alt">
+   </i>
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/lab_notebooks/B12.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/zelenkastiot/bio_lab"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/zelenkastiot/bio_lab/issues/new?title=Issue%20on%20page%20%2Flab_notebooks/B12.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/zelenkastiot/bio_lab/edit/main/lab_notebooks/B12.ipynb"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/zelenkastiot/bio_lab/main?urlpath=lab/tree/lab_notebooks/B12.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/drive/1awuAkJtHOMPezHostnGHZ8sTpMXEDhCI?usp=sharing/github/zelenkastiot/bio_lab/blob/main/lab_notebooks/B12.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id1">
+   Алгоритам на Нусинов
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     1. Фаза на полнење на матрицата
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     2. Фаза за навраќање наназад
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id4">
+     Резултат од алгоритам
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#d">
+   3D приказ на резултатот
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="nussinov">
+<h1>💻 Б12: Имплементација на Nussinov функција<a class="headerlink" href="#nussinov" title="Permalink to this headline">¶</a></h1>
+<div class="tip admonition">
+<p class="admonition-title">Опис на барање</p>
+<p>Да се испрограмира алгоритмот на Nussinov како функција во
+python која на влез ќе добива стринг од нуклеотиди, а на
+излезе ќе ја дава нивната секундарна структура.</p>
+<p>Влез нека биде следната <strong>tRNA</strong> молекула: <br></p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">ACCGCGGGGCGUCCGGCUCAGCUUGCCGCUGCGGAGC</span>
+<span class="n">GCCGCAGUAGCCGAAACUUCCGGCUCGGGCCGUGGGC</span>
+<span class="n">GGUCUCUAGUCGCCCCG</span> 
+</pre></div>
+</div>
+</div>
+<div class="section" id="id1">
+<h2>Алгоритам на Нусинов<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>Алгоритмот на <strong>Нусинов</strong> го решава проблемот со <em>предвидување на секундарни РНА структури со максимизирање на базните парови</em>.</p>
+<p>Исто така го „решава“ проблемот со предвидување на непреодни секундарни структури. Ова се постигнува со доделување на резултат на нашата влезна структура во рамките на <span class="math notranslate nohighlight">\(L \times L\)</span> матрицата, <span class="math notranslate nohighlight">\(N_{ij}\)</span>. За да го направите ова, за секој спарен комплет на нуклеотиди, ние му даваме резултат +1, а за други, 0. Потоа се обидуваме да ги зголемиме резултатите и да се повлечеме од нуклеотидите што го зголемуваат нашиот вкупен резултат. За да ги зголемиме нашите базни парови, Нусинов наведува само 4 можни правила што можеме да ги користиме при споредување на нуклеотидите.</p>
+<p>Главните пресметки на <strong>Нусинов</strong> се рекурзивни и ги пресметуваат најдобрите секундарни структури за мали сукцесии на нуклеотиди сè додека не достигне поголеми.</p>
+<div class="figure align-center" id="fig1-gif">
+<a class="reference internal image-reference" href="../_images/img2.gif"><img alt="../_images/img2.gif" src="../_images/img2.gif" style="width: 25%;" /></a>
+<p class="caption"><span class="caption-number">Fig. 4 </span><span class="caption-text">Визуелн приказ за полнење на матрицата (Фаза 1)</span><a class="headerlink" href="#fig1-gif" title="Permalink to this image">¶</a></p>
+</div>
+<p>Алгоритамот се состои од две фази:</p>
+<ul class="simple">
+<li><p>Фаза на полнење на матрицата</p></li>
+<li><p>Фаза на навраќање наназад</p></li>
+</ul>
+<div class="section" id="id2">
+<h3>1. Фаза на полнење на матрицата<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<p>Правила:</p>
+<ol class="simple">
+<li><p>Додадете непарирана позиција <span class="math notranslate nohighlight">\(i\)</span> на најдобрата подструктура за последователно ниво <span class="math notranslate nohighlight">\(i + 1, j\)</span></p></li>
+<li><p>Додадете непарирана позиција <span class="math notranslate nohighlight">\(j\)</span> на најдобрата подструктура за следницата <span class="math notranslate nohighlight">\(i, j – 1\)</span></p></li>
+<li><p>Додадете спарени основи <span class="math notranslate nohighlight">\(i – j\)</span> во најдобрата подструктура за следната <span class="math notranslate nohighlight">\(i + j, j – 1\)</span></p></li>
+<li><p>Комбинирајте две оптимални подструктури <span class="math notranslate nohighlight">\(i, k\)</span> и <span class="math notranslate nohighlight">\(k + 1, j\)</span></p></li>
+</ol>
+<div class="figure align-center" id="fig5-rules">
+<a class="reference internal image-reference" href="../_images/img1.png"><img alt="../_images/img1.png" src="../_images/img1.png" style="width: 85%;" /></a>
+<p class="caption"><span class="caption-number">Fig. 5 </span><span class="caption-text">Визуелен приказ на сите 4 правила</span><a class="headerlink" href="#fig5-rules" title="Permalink to this image">¶</a></p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">Bio.Seq</span> <span class="kn">import</span> <span class="n">Seq</span> 
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="n">sample</span> <span class="o">=</span> <span class="s2">&quot;ACCGCGGGGCGUCCGGCUCAGCUUGCCGCUGCGGAGCGCCGCAGUAGCCGAAACUUCCGGCUCGGGCCGUGGGCGGUCUCUAGUCGCCCCG&quot;</span>
+
+<span class="n">input_dna</span> <span class="o">=</span> <span class="n">Seq</span><span class="p">(</span><span class="n">sample</span><span class="p">)</span>
+<span class="n">output_rna</span> <span class="o">=</span> <span class="n">input_dna</span><span class="o">.</span><span class="n">transcribe</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Транскрипција&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;ДНА:</span><span class="se">\n</span><span class="s2"> </span><span class="si">{</span><span class="n">input_dna</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;RNA:</span><span class="se">\n</span><span class="s2"> </span><span class="si">{</span><span class="n">output_rna</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Транскрипција
+ДНА:
+ ACCGCGGGGCGUCCGGCUCAGCUUGCCGCUGCGGAGCGCCGCAGUAGCCGAAACUUCCGGCUCGGGCCGUGGGCGGUCUCUAGUCGCCCCG
+RNA:
+ ACCGCGGGGCGUCCGGCUCAGCUUGCCGCUGCGGAGCGCCGCAGUAGCCGAAACUUCCGGCUCGGGCCGUGGGCGGUCUCUAGUCGCCCCG
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">fill</span><span class="p">(</span><span class="n">nm</span> <span class="p">,</span> <span class="n">rna</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Пополнување на матрицата по Nussinov algorithm</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">minimal_loop_length</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">rna</span><span class="p">)):</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">rna</span><span class="p">)</span> <span class="o">-</span> <span class="n">k</span><span class="p">):</span>
+            <span class="n">j</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="n">k</span>
+            <span class="k">if</span> <span class="n">j</span> <span class="o">-</span> <span class="n">i</span> <span class="o">&gt;=</span> <span class="n">minimal_loop_length</span><span class="p">:</span>
+                <span class="n">down</span> <span class="o">=</span> <span class="n">nm</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="c1"># 1 правило: доле</span>
+                <span class="n">left</span> <span class="o">=</span> <span class="n">nm</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="c1"># 2 правило: лево</span>
+                <span class="n">diag</span> <span class="o">=</span> <span class="n">nm</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">][</span><span class="n">j</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">couple</span><span class="p">((</span><span class="n">rna</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">rna</span><span class="p">[</span><span class="n">j</span><span class="p">]))</span> <span class="c1"># 3 правило: дијагонала лево долу + дали е пар или не</span>
+                <span class="n">rc</span> <span class="o">=</span> <span class="nb">max</span><span class="p">([</span><span class="n">nm</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">t</span><span class="p">]</span> <span class="o">+</span> <span class="n">nm</span><span class="p">[</span><span class="n">t</span> <span class="o">+</span> <span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">)])</span> <span class="c1"># 4 правило: комибација од две оптимални субструктури (list comprehension)</span>
+                <span class="n">nm</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">down</span><span class="p">,</span> <span class="n">left</span><span class="p">,</span> <span class="n">diag</span><span class="p">,</span> <span class="n">rc</span><span class="p">)</span> <span class="c1"># врати го максимумот</span>
+            
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">nm</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">return</span> <span class="n">nm</span>
+
+<span class="k">def</span> <span class="nf">couple</span><span class="p">(</span><span class="n">pair</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Врати True ако РНА нуклеотидите се парови</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">pairs</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;A&quot;</span><span class="p">:</span> <span class="s2">&quot;U&quot;</span><span class="p">,</span> <span class="s2">&quot;U&quot;</span><span class="p">:</span> <span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="s2">&quot;G&quot;</span><span class="p">:</span> <span class="s2">&quot;C&quot;</span><span class="p">,</span> <span class="s2">&quot;C&quot;</span><span class="p">:</span> <span class="s2">&quot;G&quot;</span><span class="p">}</span> <span class="c1"># правила за комплементарност</span>
+    <span class="c1"># проверка</span>
+    <span class="k">if</span> <span class="n">pair</span> <span class="ow">in</span> <span class="n">pairs</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="k">return</span> <span class="kc">True</span>
+    
+    <span class="k">return</span> <span class="kc">False</span>
+
+<span class="k">def</span> <span class="nf">init_matrix</span><span class="p">(</span><span class="n">rna</span><span class="p">):</span>
+    <span class="n">M</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">rna</span><span class="p">)</span>
+    <span class="c1"># иницијална матрица</span>
+    <span class="n">nm</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">([</span><span class="n">M</span><span class="p">,</span> <span class="n">M</span><span class="p">])</span>
+    <span class="n">nm</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">NAN</span>
+    <span class="c1"># главна дијагонала и веднаш под главна-дијагоналата</span>
+    <span class="n">nm</span><span class="p">[</span><span class="nb">range</span><span class="p">(</span><span class="n">M</span><span class="p">),</span> <span class="nb">range</span><span class="p">(</span><span class="n">M</span><span class="p">)]</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">nm</span><span class="p">[</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">rna</span><span class="p">)),</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">rna</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)]</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">return</span> <span class="n">nm</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id3">
+<h3>2. Фаза за навраќање наназад<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">traceback</span><span class="p">(</span><span class="n">nm</span><span class="p">,</span> <span class="n">rna</span><span class="p">,</span> <span class="n">fold</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">L</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Рекурзија: Навраќање низ пополнета Nussinov матрица за да се најде оптимална РНА секундарна структура</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">j</span> <span class="o">=</span> <span class="n">L</span>
+
+    <span class="k">if</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">j</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">nm</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">==</span> <span class="n">nm</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="p">]:</span> <span class="c1"># 1 правило</span>
+            <span class="n">traceback</span><span class="p">(</span><span class="n">nm</span><span class="p">,</span> <span class="n">rna</span><span class="p">,</span> <span class="n">fold</span><span class="p">,</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">nm</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">==</span> <span class="n">nm</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]:</span> <span class="c1"># 2 правило</span>
+            <span class="n">traceback</span><span class="p">(</span><span class="n">nm</span><span class="p">,</span> <span class="n">rna</span><span class="p">,</span> <span class="n">fold</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">nm</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">==</span> <span class="n">nm</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">][</span><span class="n">j</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">couple</span><span class="p">((</span><span class="n">rna</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">rna</span><span class="p">[</span><span class="n">j</span><span class="p">])):</span> <span class="c1"># 3 правило</span>
+            <span class="n">fold</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">))</span>
+            <span class="n">traceback</span><span class="p">(</span><span class="n">nm</span><span class="p">,</span> <span class="n">rna</span><span class="p">,</span> <span class="n">fold</span><span class="p">,</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">j</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">j</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
+                <span class="k">if</span> <span class="n">nm</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">==</span> <span class="n">nm</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">k</span><span class="p">]</span> <span class="o">+</span> <span class="n">nm</span><span class="p">[</span><span class="n">k</span> <span class="o">+</span> <span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="p">]:</span> <span class="c1"># 4 правило</span>
+                    <span class="n">traceback</span><span class="p">(</span><span class="n">nm</span><span class="p">,</span> <span class="n">rna</span><span class="p">,</span> <span class="n">fold</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span>
+                    <span class="n">traceback</span><span class="p">(</span><span class="n">nm</span><span class="p">,</span> <span class="n">rna</span><span class="p">,</span> <span class="n">fold</span><span class="p">,</span> <span class="n">k</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span>
+                    <span class="k">break</span>
+
+    <span class="k">return</span> <span class="n">fold</span>
+
+<span class="k">def</span> <span class="nf">dot_write</span><span class="p">(</span><span class="n">rna</span><span class="p">,</span> <span class="n">fold</span><span class="p">):</span>
+    <span class="n">dot</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;.&quot;</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">rna</span><span class="p">))]</span>
+    <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">fold</span><span class="p">:</span>
+        <span class="n">dot</span><span class="p">[</span><span class="nb">min</span><span class="p">(</span><span class="n">s</span><span class="p">)]</span> <span class="o">=</span> <span class="s2">&quot;(&quot;</span>
+        <span class="n">dot</span><span class="p">[</span><span class="nb">max</span><span class="p">(</span><span class="n">s</span><span class="p">)]</span> <span class="o">=</span> <span class="s2">&quot;)&quot;</span>
+    <span class="k">return</span> <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">dot</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id4">
+<h3>Резултат од алгоритам<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">output_rna</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Должина на РНА сегмент: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">output_rna</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ACCGCGGGGCGUCCGGCUCAGCUUGCCGCUGCGGAGCGCCGCAGUAGCCGAAACUUCCGGCUCGGGCCGUGGGCGGUCUCUAGUCGCCCCG
+Должина на РНА сегмент: 91
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rna</span> <span class="o">=</span> <span class="n">output_rna</span>
+<span class="n">nm</span> <span class="o">=</span> <span class="n">init_matrix</span><span class="p">(</span><span class="n">rna</span><span class="p">)</span>
+<span class="n">nm</span> <span class="o">=</span> <span class="n">fill</span><span class="p">(</span><span class="n">nm</span><span class="p">,</span> <span class="n">rna</span><span class="p">)</span>
+ 
+<span class="n">fold</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">sec</span> <span class="o">=</span> <span class="n">traceback</span><span class="p">(</span><span class="n">nm</span><span class="p">,</span> <span class="n">rna</span><span class="p">,</span> <span class="n">fold</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">rna</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+    
+<span class="n">res</span> <span class="o">=</span> <span class="n">dot_write</span><span class="p">(</span><span class="n">rna</span><span class="p">,</span> <span class="n">fold</span><span class="p">)</span>
+
+<span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="n">_</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">rna</span><span class="p">]</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">nm</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="n">names</span><span class="p">,</span> <span class="n">columns</span> <span class="o">=</span> <span class="n">names</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">rna</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Излез на структура во облик на точки: </span><span class="si">{</span><span class="n">res</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      A    C    C    G    C    G    G    G    G    C  ...     A     G     U  \
+A   0.0  0.0  0.0  1.0  1.0  2.0  3.0  3.0  3.0  4.0  ...  36.0  36.0  37.0   
+C   0.0  0.0  0.0  1.0  1.0  2.0  3.0  3.0  3.0  4.0  ...  35.0  36.0  36.0   
+C   NaN  0.0  0.0  1.0  1.0  2.0  2.0  2.0  2.0  3.0  ...  35.0  35.0  35.0   
+G   NaN  NaN  0.0  0.0  1.0  1.0  1.0  1.0  1.0  2.0  ...  34.0  34.0  34.0   
+C   NaN  NaN  NaN  0.0  0.0  1.0  1.0  1.0  1.0  2.0  ...  34.0  34.0  34.0   
+..  ...  ...  ...  ...  ...  ...  ...  ...  ...  ...  ...   ...   ...   ...   
+C   NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  ...   NaN   NaN   NaN   
+C   NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  ...   NaN   NaN   NaN   
+C   NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  ...   NaN   NaN   NaN   
+C   NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  ...   NaN   NaN   NaN   
+G   NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  ...   NaN   NaN   NaN   
+
+       C     G     C     C     C     C     G  
+A   37.0  38.0  38.0  39.0  40.0  41.0  41.0  
+C   37.0  37.0  38.0  38.0  39.0  40.0  40.0  
+C   36.0  36.0  37.0  38.0  38.0  39.0  39.0  
+G   35.0  35.0  36.0  37.0  38.0  38.0  39.0  
+C   35.0  35.0  36.0  37.0  37.0  38.0  38.0  
+..   ...   ...   ...   ...   ...   ...   ...  
+C    NaN   0.0   0.0   0.0   0.0   0.0   1.0  
+C    NaN   NaN   0.0   0.0   0.0   0.0   1.0  
+C    NaN   NaN   NaN   0.0   0.0   0.0   1.0  
+C    NaN   NaN   NaN   NaN   0.0   0.0   1.0  
+G    NaN   NaN   NaN   NaN   NaN   0.0   0.0  
+
+[91 rows x 91 columns] 
+ ACCGCGGGGCGUCCGGCUCAGCUUGCCGCUGCGGAGCGCCGCAGUAGCCGAAACUUCCGGCUCGGGCCGUGGGCGGUCUCUAGUCGCCCCG
+
+Излез на структура во облик на точки: (((()))((().))(().)(()))(((((.))))(()()(((((()()((.((.)))())))())())))((((((.).(()).)))))).
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="d">
+<h2>3D приказ на резултатот<a class="headerlink" href="#d" title="Permalink to this headline">¶</a></h2>
+<div class="tip admonition">
+<p class="admonition-title">Што е FornaContainer?</p>
+<p><strong>FornaContainer</strong> е алатка развиена од <em>Dash</em> community каде се прикажува ориентиран граф кој ја репрезентира секундарната структура на нуклеински киселини (може да биде и РНА и ДНА).</p>
+<p>Линкот до алатката е следен: <a class="reference external" href="https://dash-gallery.plotly.host/dash-forna-container/">https://dash-gallery.plotly.host/dash-forna-container/</a></p>
+</div>
+<p>Излезот од претходната ќелија го додадов како нова струтура во оваа <em>Dash</em> апликација и резултатот за нашето превитукување беше следно:</p>
+<div class="figure align-center" id="fig6-2nd-struture-trna">
+<a class="reference internal image-reference" href="../_images/img3.png"><img alt="../_images/img3.png" src="../_images/img3.png" style="width: 85%;" /></a>
+<p class="caption"><span class="caption-number">Fig. 6 </span><span class="caption-text">Визуелен приказ на секундардната структура на нашата tRNA</span><a class="headerlink" href="#fig6-2nd-struture-trna" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "zelenkastiot/bio_lab",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./lab_notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="B11.html" title="previous page">💻 Б11: Предвидување на структурата на оперон со SVM</a>
+    <a class='right-next' id="next-link" href="B13.html" title="next page">💻 Б13: BioPython за предвидување на секундарна структура</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Кирил Зеленковски<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>

@@ -1,0 +1,39 @@
+- file: intro
+  title: "Вовед" 
+
+- part: "Лабораториска вежба"
+  chapters:
+  - file: lab_notebooks/B01
+    title: "Б1: Парсирање на фајлови"
+  - file: lab_notebooks/B02
+    title: "Б2: Поврзување со биолошки бази"
+  - file: lab_notebooks/B03
+    title: "Б3: Seq објекти"
+  - file: lab_notebooks/B04
+    title: "Б4: Yersinia pestis ДНА секвенца"
+  - file: lab_notebooks/B05
+    title: "Б5: Репликација на секвенца"
+  - file: lab_notebooks/B06
+    title: "Б6: Пронаоѓање на сите CDS"
+  - file: lab_notebooks/B07
+    title: "Б7: Старт/стоп кодони во произволен CDS"
+  - file: lab_notebooks/B08
+    title: "Б8: Транслација на секвенца"
+  - file: lab_notebooks/B09
+    title: "Б9: Мутација на секвенца"
+  - file: lab_notebooks/B10
+    title: "Б10: Креирање на FASTA фајл"
+  - file: lab_notebooks/B11
+    title: "Б11: Предвидување на структурата на оперон со SVM"
+  - file: lab_notebooks/B12
+    title: "Б12: Имплементација на Nussinov функција"
+  - file: lab_notebooks/B13
+    title: "Б13: BioPython за предвидување на секундарна структура"
+
+
+- part: "Екстерни линкови"
+  chapters:
+  - url: https://colab.research.google.com/drive/1awuAkJtHOMPezHostnGHZ8sTpMXEDhCI?usp=sharing
+    title: "Google colab" 
+  - url: https://github.com/zelenkastiot/bio_lab
+    title: "GitHub репозиториум" 

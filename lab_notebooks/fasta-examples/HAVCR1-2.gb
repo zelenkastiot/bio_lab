@@ -1,0 +1,303 @@
+LOCUS       NM_012206               1713 bp    mRNA    linear   PRI 14-FEB-2021
+DEFINITION  Homo sapiens hepatitis A virus cellular receptor 1 (HAVCR1),
+            transcript variant 1, mRNA.
+ACCESSION   NM_012206
+VERSION     NM_012206.3
+KEYWORDS    RefSeq.
+SOURCE      Homo sapiens (human)
+  ORGANISM  Homo sapiens
+            Eukaryota; Metazoa; Chordata; Craniata; Vertebrata; Euteleostomi;
+            Mammalia; Eutheria; Euarchontoglires; Primates; Haplorrhini;
+            Catarrhini; Hominidae; Homo.
+REFERENCE   1  (bases 1 to 1713)
+  AUTHORS   Costafreda MI, Abbasi A, Lu H and Kaplan G.
+  TITLE     Exosome mimicry by a HAVCR1-NPC1 pathway of endosomal fusion
+            mediates hepatitis A virus infection
+  JOURNAL   Nat Microbiol 5 (9), 1096-1106 (2020)
+   PUBMED   32541946
+  REMARK    GeneRIF: Exosome mimicry by a HAVCR1-NPC1 pathway of endosomal
+            fusion mediates hepatitis A virus infection.
+REFERENCE   2  (bases 1 to 1713)
+  AUTHORS   Song L, Sun J, Soderholm M, Melander O, Orho-Melander M, Nilsson J,
+            Borne Y and Engstrom G.
+  TITLE     Association of TIM-1 (T-Cell Immunoglobulin and Mucin Domain 1)
+            With Incidence of Stroke
+  JOURNAL   Arterioscler Thromb Vasc Biol 40 (7), 1777-1786 (2020)
+   PUBMED   32460577
+  REMARK    GeneRIF: Association of TIM-1 (T-Cell Immunoglobulin and Mucin
+            Domain 1) With Incidence of Stroke.
+REFERENCE   3  (bases 1 to 1713)
+  AUTHORS   Liu Y and Xu HB.
+  TITLE     Genetic polymorphisms of rs9313422 G>C and rs41297579 G>A at the
+            promoter of TIM-1 gene contribute to the risk of community-acquired
+            pneumonia in children
+  JOURNAL   J Clin Lab Anal 34 (3), e23095 (2020)
+   PUBMED   31800133
+  REMARK    GeneRIF: Genetic polymorphisms of rs9313422 G>C and rs41297579 G>A
+            at the promoter of TIM-1 gene contribute to the risk of
+            community-acquired pneumonia in children.
+REFERENCE   4  (bases 1 to 1713)
+  AUTHORS   Kammer M, Heinzel A, Willency JA, Duffin KL, Mayer G, Simons K,
+            Gerl MJ, Klose C, Heinze G, Reindl-Schwaighofer R, Hu K, Perco P,
+            Eder S, Rosivall L, Mark PB, Ju W, Kretzler M, McCarthy MI,
+            Heerspink HL, Wiecek A, Gomez MF and Oberbauer R.
+  CONSRTM   BEAt-DKD Consortium
+  TITLE     Integrative analysis of prognostic biomarkers derived from
+            multiomics panels helps discrimination of chronic kidney disease
+            trajectories in people with type 2 diabetes
+  JOURNAL   Kidney Int 96 (6), 1381-1388 (2019)
+   PUBMED   31679767
+  REMARK    GeneRIF: Integrative analysis of prognostic biomarkers derived from
+            multiomics panels helps discrimination of chronic kidney disease
+            trajectories in people with type 2 diabetes.
+REFERENCE   5  (bases 1 to 1713)
+  AUTHORS   McIntire JJ, Umetsu SE, Macaubas C, Hoyte EG, Cinnioglu C,
+            Cavalli-Sforza LL, Barsh GS, Hallmayer JF, Underhill PA, Risch NJ,
+            Freeman GJ, DeKruyff RH and Umetsu DT.
+  TITLE     Immunology: hepatitis A virus link to atopic disease
+  JOURNAL   Nature 425 (6958), 576 (2003)
+   PUBMED   14534576
+  REMARK    GeneRIF: protective effects of hepatitis A virus on atopic disease
+            depends on a common TIM-1 allele
+REFERENCE   6  (bases 1 to 1713)
+  AUTHORS   Noguchi E, Nakayama J, Kamioka M, Ichikawa K, Shibasaki M and
+            Arinami T.
+  TITLE     Insertion/deletion coding polymorphisms in hHAVcr-1 are not
+            associated with atopic asthma in the Japanese population
+  JOURNAL   Genes Immun 4 (2), 170-173 (2003)
+   PUBMED   12618867
+  REMARK    GeneRIF: Polymorphisms in hHAVcr-1 are not associated with atopic
+            asthma in the Japanese population.
+REFERENCE   7  (bases 1 to 1713)
+  AUTHORS   Bailly V, Zhang Z, Meier W, Cate R, Sanicola M and Bonventre JV.
+  TITLE     Shedding of kidney injury molecule-1, a putative adhesion protein
+            involved in renal regeneration
+  JOURNAL   J Biol Chem 277 (42), 39739-39748 (2002)
+   PUBMED   12138159
+  REMARK    GeneRIF: shedding of KIM-1 in the regenerating kidney constitutes
+            an active mechanism allowing dedifferentiated regenerating cells to
+            scatter on basement membrane and reconstitute a continuous
+            epithelial layer
+REFERENCE   8  (bases 1 to 1713)
+  AUTHORS   McIntire JJ, Umetsu SE, Akbari O, Potter M, Kuchroo VK, Barsh GS,
+            Freeman GJ, Umetsu DT and DeKruyff RH.
+  TITLE     Identification of Tapr (an airway hyperreactivity regulatory locus)
+            and the linked Tim gene family
+  JOURNAL   Nat Immunol 2 (12), 1109-1116 (2001)
+   PUBMED   11725301
+  REMARK    GeneRIF: asthma susceptibility gene
+REFERENCE   9  (bases 1 to 1713)
+  AUTHORS   Feigelstock D, Thompson P, Mattoo P, Zhang Y and Kaplan GG.
+  TITLE     The human homolog of HAVcr-1 codes for a hepatitis A virus cellular
+            receptor
+  JOURNAL   J Virol 72 (8), 6621-6628 (1998)
+   PUBMED   9658108
+REFERENCE   10 (bases 1 to 1713)
+  AUTHORS   Thompson P, Lu J and Kaplan GG.
+  TITLE     The Cys-rich region of hepatitis A virus cellular receptor 1 is
+            required for binding of hepatitis A virus and protective monoclonal
+            antibody 190/4
+  JOURNAL   J Virol 72 (5), 3751-3761 (1998)
+   PUBMED   9557657
+COMMENT     REVIEWED REFSEQ: This record has been curated by NCBI staff. The
+            reference sequence was derived from BG752287.1, AW604297.1,
+            BC013325.1 and AK298259.1.
+            On Apr 22, 2015 this sequence version replaced NM_012206.2.
+            
+            Summary: The protein encoded by this gene is a membrane receptor
+            for both human hepatitis A virus (HHAV) and TIMD4. The encoded
+            protein may be involved in the moderation of asthma and allergic
+            diseases. The reference genome represents an allele that retains a
+            MTTVP amino acid segment that confers protection against atopy in
+            HHAV seropositive individuals. Alternative splicing of this gene
+            results in multiple transcript variants. Related pseudogenes have
+            been identified on chromosomes 4, 12 and 19. [provided by RefSeq,
+            Apr 2015].
+            
+            Transcript Variant: This variant (1) encodes the shorter isoform
+            (a). Both variants 1 and 3 encode isoform a.
+            
+            Publication Note:  This RefSeq record includes a subset of the
+            publications that are available for this gene. Please see the Gene
+            record to access additional publications.
+            
+            ##Evidence-Data-START##
+            Transcript exon combination :: BC013325.1, CR457114.1 [ECO:0000332]
+            RNAseq introns              :: mixed/partial sample support
+                                           SAMEA1965299, SAMEA1966682
+                                           [ECO:0000350]
+            ##Evidence-Data-END##
+PRIMARY     REFSEQ_SPAN         PRIMARY_IDENTIFIER PRIMARY_SPAN        COMP
+            1-58                BG752287.1         215-272
+            59-133              AW604297.1         590-664             c
+            134-1606            BC013325.1         4-1476
+            1607-1713           AK298259.1         1592-1698
+FEATURES             Location/Qualifiers
+     source          1..1713
+                     /organism="Homo sapiens"
+                     /mol_type="mRNA"
+                     /db_xref="taxon:9606"
+                     /chromosome="5"
+                     /map="5q33.3"
+     gene            1..1713
+                     /gene="HAVCR1"
+                     /gene_synonym="CD365; HAVCR; HAVCR-1; KIM-1; KIM1; TIM;
+                     TIM-1; TIM1; TIMD-1; TIMD1"
+                     /note="hepatitis A virus cellular receptor 1"
+                     /db_xref="GeneID:26762"
+                     /db_xref="HGNC:HGNC:17866"
+                     /db_xref="MIM:606518"
+     exon            1..344
+                     /gene="HAVCR1"
+                     /gene_synonym="CD365; HAVCR; HAVCR-1; KIM-1; KIM1; TIM;
+                     TIM-1; TIM1; TIMD-1; TIMD1"
+                     /inference="alignment:Splign:2.1.0"
+     misc_feature    215..217
+                     /gene="HAVCR1"
+                     /gene_synonym="CD365; HAVCR; HAVCR-1; KIM-1; KIM1; TIM;
+                     TIM-1; TIM1; TIMD-1; TIMD1"
+                     /note="upstream in-frame stop codon"
+     CDS             299..1393
+                     /gene="HAVCR1"
+                     /gene_synonym="CD365; HAVCR; HAVCR-1; KIM-1; KIM1; TIM;
+                     TIM-1; TIM1; TIMD-1; TIMD1"
+                     /note="isoform a precursor is encoded by transcript
+                     variant 1; kidney injury molecule 1; T-cell membrane
+                     protein 1; T cell immunoglobin domain and mucin domain
+                     protein 1; T-cell immunoglobulin mucin receptor 1; T-cell
+                     immunoglobulin mucin family member 1"
+                     /codon_start=1
+                     /product="hepatitis A virus cellular receptor 1 isoform a
+                     precursor"
+                     /protein_id="NP_036338.2"
+                     /db_xref="CCDS:CCDS43392.1"
+                     /db_xref="GeneID:26762"
+                     /db_xref="HGNC:HGNC:17866"
+                     /db_xref="MIM:606518"
+                     /translation="MHPQVVILSLILHLADSVAGSVKVGGEAGPSVTLPCHYSGAVTS
+                     MCWNRGSCSLFTCQNGIVWTNGTHVTYRKDTRYKLLGDLSRRDVSLTIENTAVSDSGV
+                     YCCRVEHRGWFNDMKITVSLEIVPPKVTTTPIVTTVPTVTTVRTSTTVPTTTTVPMTT
+                     VPTTTVPTTMSIPTTTTVLTTMTVSTTTSVPTTTSIPTTTSVPVTTTVSTFVPPMPLP
+                     RQNHEPVATSPSSPQPAETHPTTLQGAIRREPTSSPLYSYTTDGNDTVTESSDGLWNN
+                     NQTQLFLEHSLLTANTTKGIYAGVCISVLVLLALLGVIIAKKYFFKKEVQQLSVSFSS
+                     LQIKALQNAVEKEVQAEDNIYIENSLYATD"
+     sig_peptide     299..358
+                     /gene="HAVCR1"
+                     /gene_synonym="CD365; HAVCR; HAVCR-1; KIM-1; KIM1; TIM;
+                     TIM-1; TIM1; TIMD-1; TIMD1"
+                     /inference="COORDINATES: ab initio prediction:SignalP:4.0"
+     mat_peptide     359..1390
+                     /gene="HAVCR1"
+                     /gene_synonym="CD365; HAVCR; HAVCR-1; KIM-1; KIM1; TIM;
+                     TIM-1; TIM1; TIMD-1; TIMD1"
+                     /product="Hepatitis A virus cellular receptor 1.
+                     /id=PRO_0000014981"
+                     /note="propagated from UniProtKB/Swiss-Prot (Q96D42.3)"
+     misc_feature    491..493
+                     /gene="HAVCR1"
+                     /gene_synonym="CD365; HAVCR; HAVCR-1; KIM-1; KIM1; TIM;
+                     TIM-1; TIM1; TIMD-1; TIMD1"
+                     /note="N-linked (GlcNAc...) asparagine.
+                     /evidence=ECO:0000255; propagated from
+                     UniProtKB/Swiss-Prot (Q96D42.3); glycosylation site"
+     misc_feature    710..919
+                     /gene="HAVCR1"
+                     /gene_synonym="CD365; HAVCR; HAVCR-1; KIM-1; KIM1; TIM;
+                     TIM-1; TIM1; TIMD-1; TIMD1"
+                     /note="propagated from UniProtKB/Swiss-Prot (Q96D42.3);
+                     Region: 12 X 6 AA approximate tandem repeats of
+                     V-P-T-T-T-T]"
+     misc_feature    1085..1087
+                     /gene="HAVCR1"
+                     /gene_synonym="CD365; HAVCR; HAVCR-1; KIM-1; KIM1; TIM;
+                     TIM-1; TIM1; TIMD-1; TIMD1"
+                     /note="N-linked (GlcNAc...) asparagine.
+                     /evidence=ECO:0000255; propagated from
+                     UniProtKB/Swiss-Prot (Q96D42.3); glycosylation site"
+     misc_feature    1127..1129
+                     /gene="HAVCR1"
+                     /gene_synonym="CD365; HAVCR; HAVCR-1; KIM-1; KIM1; TIM;
+                     TIM-1; TIM1; TIMD-1; TIMD1"
+                     /note="N-linked (GlcNAc...) asparagine.
+                     /evidence=ECO:0000255; propagated from
+                     UniProtKB/Swiss-Prot (Q96D42.3); glycosylation site"
+     misc_feature    1169..1171
+                     /gene="HAVCR1"
+                     /gene_synonym="CD365; HAVCR; HAVCR-1; KIM-1; KIM1; TIM;
+                     TIM-1; TIM1; TIMD-1; TIMD1"
+                     /note="N-linked (GlcNAc...) asparagine.
+                     /evidence=ECO:0000255; propagated from
+                     UniProtKB/Swiss-Prot (Q96D42.3); glycosylation site"
+     misc_feature    1184..1246
+                     /gene="HAVCR1"
+                     /gene_synonym="CD365; HAVCR; HAVCR-1; KIM-1; KIM1; TIM;
+                     TIM-1; TIM1; TIMD-1; TIMD1"
+                     /note="propagated from UniProtKB/Swiss-Prot (Q96D42.3);
+                     transmembrane region"
+     exon            345..677
+                     /gene="HAVCR1"
+                     /gene_synonym="CD365; HAVCR; HAVCR-1; KIM-1; KIM1; TIM;
+                     TIM-1; TIM1; TIMD-1; TIMD1"
+                     /inference="alignment:Splign:2.1.0"
+     exon            678..971
+                     /gene="HAVCR1"
+                     /gene_synonym="CD365; HAVCR; HAVCR-1; KIM-1; KIM1; TIM;
+                     TIM-1; TIM1; TIMD-1; TIMD1"
+                     /inference="alignment:Splign:2.1.0"
+     exon            972..1079
+                     /gene="HAVCR1"
+                     /gene_synonym="CD365; HAVCR; HAVCR-1; KIM-1; KIM1; TIM;
+                     TIM-1; TIM1; TIMD-1; TIMD1"
+                     /inference="alignment:Splign:2.1.0"
+     exon            1080..1135
+                     /gene="HAVCR1"
+                     /gene_synonym="CD365; HAVCR; HAVCR-1; KIM-1; KIM1; TIM;
+                     TIM-1; TIM1; TIMD-1; TIMD1"
+                     /inference="alignment:Splign:2.1.0"
+     exon            1136..1250
+                     /gene="HAVCR1"
+                     /gene_synonym="CD365; HAVCR; HAVCR-1; KIM-1; KIM1; TIM;
+                     TIM-1; TIM1; TIMD-1; TIMD1"
+                     /inference="alignment:Splign:2.1.0"
+     exon            1251..1284
+                     /gene="HAVCR1"
+                     /gene_synonym="CD365; HAVCR; HAVCR-1; KIM-1; KIM1; TIM;
+                     TIM-1; TIM1; TIMD-1; TIMD1"
+                     /inference="alignment:Splign:2.1.0"
+     exon            1285..1713
+                     /gene="HAVCR1"
+                     /gene_synonym="CD365; HAVCR; HAVCR-1; KIM-1; KIM1; TIM;
+                     TIM-1; TIM1; TIMD-1; TIMD1"
+                     /inference="alignment:Splign:2.1.0"
+ORIGIN      
+        1 gaccaggagt cagtttggcg gttatgtgtg gggaagaagc tgggaagtca ggggctgttt
+       61 ctgtggacag ctttccctgt cctttggaag gcacagagct ctcagctgca gggaactaac
+      121 agagctctga agccgttata tgtggtcttc tctcatttcc agcagagcag gctcatatga
+      181 atcaaccaac tgggtgaaaa gataagttgc aatctgagat ttaagacttg atcagatacc
+      241 atctggtgga gggtaccaac cagcctgtct gctcattttc cttcaggctg atcccataat
+      301 gcatcctcaa gtggtcatct taagcctcat cctacatctg gcagattctg tagctggttc
+      361 tgtaaaggtt ggtggagagg caggtccatc tgtcacacta ccctgccact acagtggagc
+      421 tgtcacatcc atgtgctgga atagaggctc atgttctcta ttcacatgcc aaaatggcat
+      481 tgtctggacc aatggaaccc acgtcaccta tcggaaggac acacgctata agctattggg
+      541 ggacctttca agaagggatg tctctttgac catagaaaat acagctgtgt ctgacagtgg
+      601 cgtatattgt tgccgtgttg agcaccgtgg gtggttcaat gacatgaaaa tcaccgtatc
+      661 attggagatt gtgccaccca aggtcacgac tactccaatt gtcacaactg ttccaaccgt
+      721 cacgactgtt cgaacgagca ccactgttcc aacgacaacg actgttccaa tgacgactgt
+      781 tccaacgaca actgttccaa caacaatgag cattccaacg acaacgactg ttctgacgac
+      841 aatgactgtt tcaacgacaa cgagcgttcc aacgacaacg agcattccaa caacaacaag
+      901 tgttccagtg acaacaactg tctctacctt tgttcctcca atgcctttgc ccaggcagaa
+      961 ccatgaacca gtagccactt caccatcttc acctcagcca gcagaaaccc accctacgac
+     1021 actgcaggga gcaataagga gagaacccac cagctcacca ttgtactctt acacaacaga
+     1081 tgggaatgac accgtgacag agtcttcaga tggcctttgg aataacaatc aaactcaact
+     1141 gttcctagaa catagtctac tgacggccaa taccactaaa ggaatctatg ctggagtctg
+     1201 tatttctgtc ttggtgcttc ttgctctttt gggtgtcatc attgccaaaa agtatttctt
+     1261 caaaaaggag gttcaacaac taagtgtttc atttagcagc cttcaaatta aagctttgca
+     1321 aaatgcagtt gaaaaggaag tccaagcaga agacaatatc tacattgaga atagtcttta
+     1381 tgccacggac taagacccag tggtgctctt tgagagttta cgcccatgag tgcagaagac
+     1441 tgaacagaca tcagcacatc agacgtcttt tagaccccaa gacaattttt ctgtttcagt
+     1501 ttcatctggc attccaacat gtcagtgata ctgggtagag taactctctc actccaaact
+     1561 gtgtatagtc aacctcatca ttaatgtagt cctaattttt tatgctaaaa ctggctcaat
+     1621 ccttctgatc attgcagttt tctctcaaat atgaacactt tataattgta tgttcttttt
+     1681 agaccccata aatcctgtat acatcaaaga gaa
+//
+
