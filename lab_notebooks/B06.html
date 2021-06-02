@@ -1,0 +1,651 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>💻 Б6: Пронаоѓање на сите CDS &#8212; Лабораториска вежба Биоинформатика</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script async="async" kind="hypothesis" src="https://hypothes.is/embed.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="💻 Б7: Старт/стоп кодони во произволен CDS" href="B07.html" />
+    <link rel="prev" title="💻 Б5: Репликација на секвенца" href="B05.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Лабораториска вежба Биоинформатика</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Вовед
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Лабораториска вежба
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="B01.html">
+   Б1: Парсирање на фајлови
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="B02.html">
+   Б2: Поврзување со биолошки бази
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="B03.html">
+   Б3: Seq објекти
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="B04.html">
+   Б4: Yersinia pestis ДНА секвенца
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="B05.html">
+   Б5: Репликација на секвенца
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Б6: Пронаоѓање на сите CDS
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="B07.html">
+   Б7: Старт/стоп кодони во произволен CDS
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="B08.html">
+   Б8: Транслација на секвенца
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="B09.html">
+   Б9: Мутација на секвенца
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="B10.html">
+   Б10: Креирање на FASTA фајл
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="B11.html">
+   Б11: Предвидување на структурата на оперон со SVM
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="B12.html">
+   Б12: Имплементација на Nussinov функција
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="B13.html">
+   Б13: BioPython за предвидување на секундарна структура
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Екстерни линкови
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference external" href="https://colab.research.google.com/drive/1awuAkJtHOMPezHostnGHZ8sTpMXEDhCI?usp=sharing">
+   Google colab
+   <i class="fas fa-external-link-alt">
+   </i>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference external" href="https://github.com/zelenkastiot/bio_lab">
+   GitHub репозиториум
+   <i class="fas fa-external-link-alt">
+   </i>
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/lab_notebooks/B06.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/zelenkastiot/bio_lab"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/zelenkastiot/bio_lab/issues/new?title=Issue%20on%20page%20%2Flab_notebooks/B06.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/zelenkastiot/bio_lab/edit/main/lab_notebooks/B06.ipynb"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/zelenkastiot/bio_lab/main?urlpath=lab/tree/lab_notebooks/B06.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/drive/1awuAkJtHOMPezHostnGHZ8sTpMXEDhCI?usp=sharing/github/zelenkastiot/bio_lab/blob/main/lab_notebooks/B06.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="cds">
+<h1>💻 Б6: Пронаоѓање на сите CDS<a class="headerlink" href="#cds" title="Permalink to this headline">¶</a></h1>
+<div class="tip admonition">
+<p class="admonition-title">Опис на барање</p>
+<p>Со помош на <strong>BioPython</strong>, пронајдете ги секвенциите на
+различните кодни региони означени како (CDS). <strong>CDS</strong> се
+регионите добиени после процедурата на отсекување на
+интроните.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">Bio</span> <span class="kn">import</span> <span class="n">SeqIO</span>
+<span class="n">gene_record</span> <span class="o">=</span> <span class="n">SeqIO</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s2">&quot;yersinia-pestis-fasta/NC_005816.gb&quot;</span><span class="p">,</span> <span class="s2">&quot;genbank&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Вкупната должина на ДНА секвенцата е:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">gene_record</span><span class="o">.</span><span class="n">seq</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>9609
+</pre></div>
+</div>
+</div>
+</div>
+<p>Додека нас не интересира елементот од <code>gene_record.features</code>, кој е листа од карактеристики од големо значење за описот на самата секвенца. Откако ќе се започне со користење на овие секвенци, ова е еден вид на организација што лесно ни озвозможува да добиеме “поапстрактна” информација што се знае за самата секвенца.</p>
+<p>Вкупниот број на овие features може да го добиеме со:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">gene_record</span><span class="o">.</span><span class="n">features</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>41
+</pre></div>
+</div>
+</div>
+</div>
+<p>Секој еден feature има неколку атрибути, како на пример првиот од листата гледаме дека има повеќе променливи кои го опишваат меѓу кои најбитни се:</p>
+<ul class="simple">
+<li><p><code>.type:</code> типот на карактеристика (“CDS”, “gene”, …)</p></li>
+<li><p><code>.location:</code> локација на самата секвенца, како вид мапирање (почеток:крај)</p></li>
+</ul>
+<div class="cell tag_output_scroll docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">dir</span><span class="p">(</span><span class="n">gene_record</span><span class="o">.</span><span class="n">features</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;__bool__&#39;,
+ &#39;__class__&#39;,
+ &#39;__contains__&#39;,
+ &#39;__delattr__&#39;,
+ &#39;__dict__&#39;,
+ &#39;__dir__&#39;,
+ &#39;__doc__&#39;,
+ &#39;__eq__&#39;,
+ &#39;__format__&#39;,
+ &#39;__ge__&#39;,
+ &#39;__getattribute__&#39;,
+ &#39;__gt__&#39;,
+ &#39;__hash__&#39;,
+ &#39;__init__&#39;,
+ &#39;__init_subclass__&#39;,
+ &#39;__iter__&#39;,
+ &#39;__le__&#39;,
+ &#39;__len__&#39;,
+ &#39;__lt__&#39;,
+ &#39;__module__&#39;,
+ &#39;__ne__&#39;,
+ &#39;__new__&#39;,
+ &#39;__reduce__&#39;,
+ &#39;__reduce_ex__&#39;,
+ &#39;__repr__&#39;,
+ &#39;__setattr__&#39;,
+ &#39;__sizeof__&#39;,
+ &#39;__str__&#39;,
+ &#39;__subclasshook__&#39;,
+ &#39;__weakref__&#39;,
+ &#39;_flip&#39;,
+ &#39;_get_location_operator&#39;,
+ &#39;_get_ref&#39;,
+ &#39;_get_ref_db&#39;,
+ &#39;_get_strand&#39;,
+ &#39;_set_location_operator&#39;,
+ &#39;_set_ref&#39;,
+ &#39;_set_ref_db&#39;,
+ &#39;_set_strand&#39;,
+ &#39;_shift&#39;,
+ &#39;extract&#39;,
+ &#39;id&#39;,
+ &#39;location&#39;,
+ &#39;location_operator&#39;,
+ &#39;qualifiers&#39;,
+ &#39;ref&#39;,
+ &#39;ref_db&#39;,
+ &#39;strand&#39;,
+ &#39;translate&#39;,
+ &#39;type&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Пример од книгата, и интересен CDS е “<code>pim</code>” генот, YP_pPCP05 кој се наоѓа во секвенцата меѓу базните парови [4342:4780]:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">gene_record</span><span class="o">.</span><span class="n">features</span><span class="p">[</span><span class="mi">21</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>type: CDS
+location: [4342:4780](+)
+qualifiers:
+    Key: codon_start, Value: [&#39;1&#39;]
+    Key: db_xref, Value: [&#39;GI:45478716&#39;, &#39;GeneID:2767712&#39;]
+    Key: gene, Value: [&#39;pim&#39;]
+    Key: locus_tag, Value: [&#39;YP_pPCP05&#39;]
+    Key: note, Value: [&#39;similar to many previously sequenced pesticin immunity protein entries of Yersinia pestis plasmid pPCP, e.g. gi| 16082683|,ref|NP_395230.1| (NC_003132) , gi|1200166|emb|CAA90861.1| (Z54145 ) , gi|1488655| emb|CAA63439.1| (X92856) , gi|2996219|gb|AAC62543.1| (AF053945) , and gi|5763814|emb|CAB531 67.1| (AL109969)&#39;]
+    Key: product, Value: [&#39;pesticin immunity protein&#39;]
+    Key: protein_id, Value: [&#39;NP_995571.1&#39;]
+    Key: transl_table, Value: [&#39;11&#39;]
+    Key: translation, Value: [&#39;MGGGMISKLFCLALIFLSSSGLAEKNTYTAKDILQNLELNTFGNSLSHGIYGKQTTFKQTEFTNIKSNTKKHIALINKDNSWMISLKILGIKRDEYTVCFEDFSLIRPPTYVAIHPLLIKKVKSGNFIVVKEIKKSIPGCTVYYH&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Но, ние треба да ги најдее сите вакви CDS кодони и ова може да го направиме со тоа што ќе бараме низ целата низа од 41 features каде се наоѓаат оние кои имаат тип “CDS”:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">CDS_list</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">gene_record</span><span class="o">.</span><span class="n">features</span><span class="p">)):</span>
+    <span class="k">if</span> <span class="n">gene_record</span><span class="o">.</span><span class="n">features</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">type</span> <span class="o">==</span> <span class="s2">&quot;CDS&quot;</span><span class="p">:</span>
+        <span class="n">CDS_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Број на пронајдени CDS: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">CDS_list</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Број на пронајдени CDS: 10
+</pre></div>
+</div>
+</div>
+</div>
+<p>Вакви гледаме дека се вкупно 10, и нив можеме да ги испринтаме:</p>
+<div class="cell tag_output_scroll docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">CDS_list</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">gene_record</span><span class="o">.</span><span class="n">features</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>type: CDS
+location: [86:1109](+)
+qualifiers:
+    Key: codon_start, Value: [&#39;1&#39;]
+    Key: db_xref, Value: [&#39;GI:45478712&#39;, &#39;GeneID:2767718&#39;]
+    Key: locus_tag, Value: [&#39;YP_pPCP01&#39;]
+    Key: note, Value: [&#39;similar to corresponding CDS from previously sequenced pPCP plasmid of Yersinia pestis KIM (AF053945) and CO92 (AL109969), also many transposase entries for insertion sequence IS100 of Yersinia pestis. Contains IS21-like element transposase, HTH domain (Interpro|IPR007101)&#39;]
+    Key: product, Value: [&#39;putative transposase&#39;]
+    Key: protein_id, Value: [&#39;NP_995567.1&#39;]
+    Key: transl_table, Value: [&#39;11&#39;]
+    Key: translation, Value: [&#39;MVTFETVMEIKILHKQGMSSRAIARELGISRNTVKRYLQAKSEPPKYTPRPAVASLLDEYRDYIRQRIADAHPYKIPATVIAREIRDQGYRGGMTILRAFIRSLSVPQEQEPAVRFETEPGRQMQVDWGTMRNGRSPLHVFVAVLGYSRMLYIEFTDNMRYDTLETCHRNAFRFFGGVPREVLYDNMKTVVLQRDAYQTGQHRFHPSLWQFGKEMGFSPRLCRPFRAQTKGKVERMVQYTRNSFYIPLMTRLRPMGITVDVETANRHGLRWLHDVANQRKHETIQARPCDRWLEEQQSMLALPPEKKEYDVHLDENLVNFDKHPLHHPLSIYDSFCRGVA&#39;]
+
+type: CDS
+location: [1105:1888](+)
+qualifiers:
+    Key: codon_start, Value: [&#39;1&#39;]
+    Key: db_xref, Value: [&#39;GI:45478713&#39;, &#39;GeneID:2767716&#39;]
+    Key: locus_tag, Value: [&#39;YP_pPCP02&#39;]
+    Key: note, Value: [&#39;similar to corresponding CDS form previously sequenced pPCP plasmid of Yersinia pestis KIM (AF053945) and CO92 (AL109969), also many ATP-binding protein entries for insertion sequence IS100 of Yersinia pestis. Contains Chaperonin clpA/B (Interpro|IPR001270). Contains ATP/GTP-binding site motif A (P-loop) (Interpro|IPR001687, Molecular Function: ATP binding (GO:0005524)). Contains Bacterial chromosomal replication initiator protein, DnaA (Interpro|IPR001957, Molecular Function: DNA binding (GO:0003677), Molecular Function: DNA replication origin binding (GO:0003688), Molecular Function: ATP binding (GO:0005524), Biological Process: DNA replication initiation (GO:0006270), Biological Process: regulation of DNA replication (GO:0006275)). Contains AAA ATPase (Interpro|IPR003593, Molecular Function: nucleotide binding (GO:0000166))&#39;]
+    Key: product, Value: [&#39;transposase/IS protein&#39;]
+    Key: protein_id, Value: [&#39;NP_995568.1&#39;]
+    Key: transl_table, Value: [&#39;11&#39;]
+    Key: translation, Value: [&#39;MMMELQHQRLMALAGQLQLESLISAAPALSQQAVDQEWSYMDFLEHLLHEEKLARHQRKQAMYTRMAAFPAVKTFEEYDFTFATGAPQKQLQSLRSLSFIERNENIVLLGPSGVGKTHLAIAMGYEAVRAGIKVRFTTAADLLLQLSTAQRQGRYKTTLQRGVMAPRLLIIDEIGYLPFSQEEAKLFFQVIAKRYEKSAMILTSNLPFGQWDQTFAGDAALTSAMLDRILHHSHVVQIKGESYRLRQKRKAGVIAEANPE&#39;]
+
+type: CDS
+location: [2924:3119](+)
+qualifiers:
+    Key: codon_start, Value: [&#39;1&#39;]
+    Key: db_xref, Value: [&#39;GI:45478714&#39;, &#39;GeneID:2767717&#39;]
+    Key: gene, Value: [&#39;rop&#39;]
+    Key: gene_synonym, Value: [&#39;rom&#39;]
+    Key: locus_tag, Value: [&#39;YP_pPCP03&#39;]
+    Key: note, Value: [&#39;Best Blastp hit =gi|16082682|ref|NP_395229.1| (NC_003132) putative replication regulatory protein [Yersinia pestis], gi|5763813|emb|CAB531 66.1| (AL109969) putative replication regulatory protein [Yersinia pestis]; similar to gb|AAK91579.1| (AY048853), RNAI modulator protein Rom [Salmonella choleraesuis], Contains Regulatory protein Rop (Interpro|IPR000769)&#39;]
+    Key: product, Value: [&#39;putative replication regulatory protein&#39;]
+    Key: protein_id, Value: [&#39;NP_995569.1&#39;]
+    Key: transl_table, Value: [&#39;11&#39;]
+    Key: translation, Value: [&#39;MNKQQQTALNMARFIRSQSLILLEKLDALDADEQAAMCERLHELAEELQNSIQARFEAESETGT&#39;]
+
+type: CDS
+location: [3485:3857](+)
+qualifiers:
+    Key: codon_start, Value: [&#39;1&#39;]
+    Key: db_xref, Value: [&#39;GI:45478715&#39;, &#39;GeneID:2767720&#39;]
+    Key: locus_tag, Value: [&#39;YP_pPCP04&#39;]
+    Key: note, Value: [&#39;Best Blastp hit = gi|321919|pir||JQ1541 hypothetical 16.9K protein - Salmonella typhi murium plasmid NTP16.&#39;]
+    Key: product, Value: [&#39;hypothetical protein&#39;]
+    Key: protein_id, Value: [&#39;NP_995570.1&#39;]
+    Key: transl_table, Value: [&#39;11&#39;]
+    Key: translation, Value: [&#39;MSKKRRPQKRPRRRRFFHRLRPPDEHHKNRRSSQRWRNPTGLKDTRRFPPEAPSCALLFRPCRLPDTSPPFSLREAWRFLIAHAVGISVRCRSFAPSWAVCTNPPFSPTTAPYPVTIVLSPTR&#39;]
+
+type: CDS
+location: [4342:4780](+)
+qualifiers:
+    Key: codon_start, Value: [&#39;1&#39;]
+    Key: db_xref, Value: [&#39;GI:45478716&#39;, &#39;GeneID:2767712&#39;]
+    Key: gene, Value: [&#39;pim&#39;]
+    Key: locus_tag, Value: [&#39;YP_pPCP05&#39;]
+    Key: note, Value: [&#39;similar to many previously sequenced pesticin immunity protein entries of Yersinia pestis plasmid pPCP, e.g. gi| 16082683|,ref|NP_395230.1| (NC_003132) , gi|1200166|emb|CAA90861.1| (Z54145 ) , gi|1488655| emb|CAA63439.1| (X92856) , gi|2996219|gb|AAC62543.1| (AF053945) , and gi|5763814|emb|CAB531 67.1| (AL109969)&#39;]
+    Key: product, Value: [&#39;pesticin immunity protein&#39;]
+    Key: protein_id, Value: [&#39;NP_995571.1&#39;]
+    Key: transl_table, Value: [&#39;11&#39;]
+    Key: translation, Value: [&#39;MGGGMISKLFCLALIFLSSSGLAEKNTYTAKDILQNLELNTFGNSLSHGIYGKQTTFKQTEFTNIKSNTKKHIALINKDNSWMISLKILGIKRDEYTVCFEDFSLIRPPTYVAIHPLLIKKVKSGNFIVVKEIKKSIPGCTVYYH&#39;]
+
+type: CDS
+location: [4814:5888](-)
+qualifiers:
+    Key: codon_start, Value: [&#39;1&#39;]
+    Key: db_xref, Value: [&#39;GI:45478717&#39;, &#39;GeneID:2767721&#39;]
+    Key: gene, Value: [&#39;pst&#39;]
+    Key: locus_tag, Value: [&#39;YP_pPCP06&#39;]
+    Key: note, Value: [&#39;Best Blastp hit =|16082684|ref|NP_395231.1| (NC_003132) pesticin [Yersinia pestis], gi|984824|gb|AAA75369.1| (U31974) pesticin [Yersinia pestis], gi|1488654|emb|CAA63438.1| (X92856) pesticin [Yersinia pestis], gi|2996220|gb|AAC62544.1| (AF053945) pesticin [Yersinia pestis], gi|5763815|emb|CAB53168.1| (AL1099 69) pesticin [Yersinia pestis]&#39;]
+    Key: product, Value: [&#39;pesticin&#39;]
+    Key: protein_id, Value: [&#39;NP_995572.1&#39;]
+    Key: transl_table, Value: [&#39;11&#39;]
+    Key: translation, Value: [&#39;MSDTMVVNGSGGVPAFLFSGSTLSSYRPNFEANSITIALPHYVDLPGRSNFKLMYIMGFPIDTEMEKDSEYSNKIRQESKISKTEGTVSYEQKITVETGQEKDGVKVYRVMVLEGTIAESIEHLDKKENEDILNNNRNRIVLADNTVINFDNISQLKEFLRRSVNIVDHDIFSSNGFEGFNPTSHFPSNPSSDYFNSTGVTFGSGVDLGQRSKQDLLNDGVPQYIADRLDGYYMLRGKEAYDKVRTAPLTLSDNEAHLLSNIYIDKFSHKIEGLFNDANIGLRFSDLPLRTRTALVSIGYQKGFKLSRTAPTVWNKVIAKDWNGLVNAFNNIVDGMSDRRKREGALVQKDIDSGLLK&#39;]
+
+type: CDS
+location: [6004:6421](+)
+qualifiers:
+    Key: codon_start, Value: [&#39;1&#39;]
+    Key: db_xref, Value: [&#39;GI:45478718&#39;, &#39;GeneID:2767719&#39;]
+    Key: locus_tag, Value: [&#39;YP_pPCP07&#39;]
+    Key: note, Value: [&#39;Best Blastp hit = gi|16082685|ref|NP_395232.1| (NC_003132) hypothetical protein [Yersinia pestis], gi|5763816|emb|CAB53169.1| (AL109969) hypothetical protein [Yersinia pestis]&#39;]
+    Key: product, Value: [&#39;hypothetical protein&#39;]
+    Key: protein_id, Value: [&#39;NP_995573.1&#39;]
+    Key: transl_table, Value: [&#39;11&#39;]
+    Key: translation, Value: [&#39;MKFHFCDLNHSYKNQEGKIRSRKTAPGNIRKKQKGDNVSKTKSGRHRLSKTDKRLLAALVVAGYEERTARDLIQKHVYTLTQADLRHLVSEISNGVGQSQAYDAIYQARRIRLARKYLSGKKPEGVEPREGQEREDLP&#39;]
+
+type: CDS
+location: [6663:7602](+)
+qualifiers:
+    Key: EC_number, Value: [&#39;3.4.23.48&#39;]
+    Key: codon_start, Value: [&#39;1&#39;]
+    Key: db_xref, Value: [&#39;GI:45478719&#39;, &#39;GeneID:2767715&#39;]
+    Key: gene, Value: [&#39;pla&#39;]
+    Key: locus_tag, Value: [&#39;YP_pPCP08&#39;]
+    Key: note, Value: [&#39;outer membrane protease; involved in virulence in many organisms; OmpT; IcsP; SopA; Pla; PgtE; omptin; in Escherichia coli OmpT can degrade antimicrobial peptides; in Yersinia Pla activates plasminogen during infection; in Shigella flexneria SopA cleaves the autotransporter IcsA&#39;]
+    Key: product, Value: [&#39;outer membrane protease&#39;]
+    Key: protein_id, Value: [&#39;NP_995574.1&#39;]
+    Key: transl_table, Value: [&#39;11&#39;]
+    Key: translation, Value: [&#39;MKKSSIVATIITILSGSANAASSQLIPNISPDSFTVAASTGMLSGKSHEMLYDAETGRKISQLDWKIKNVAILKGDISWDPYSFLTLNARGWTSLASGSGNMDDYDWMNENQSEWTDHSSHPATNVNHANEYDLNVKGWLLQDENYKAGITAGYQETRFSWTATGGSYSYNNGAYTGNFPKGVRVIGYNQRFSMPYIGLAGQYRINDFELNALFKFSDWVRAHDNDEHYMRDLTFREKTSGSRYYGTVINAGYYVTPNAKVFAEFTYSKYDEGKGGTQIIDKNSGDSVSIGGDAAGISNKNYTVTAGLQYRF&#39;]
+
+type: CDS
+location: [7788:8088](-)
+qualifiers:
+    Key: codon_start, Value: [&#39;1&#39;]
+    Key: db_xref, Value: [&#39;GI:45478720&#39;, &#39;GeneID:2767713&#39;]
+    Key: locus_tag, Value: [&#39;YP_pPCP09&#39;]
+    Key: note, Value: [&#39;Best Blastp hit = gi|16082687|ref|NP_395234.1| (NC_003132) putative transcriptional regulator [Yersinia pestis], gi|5763818|emb|CAB53171.1| (AL109969) putative transcriptional regulator [Yersinia pestis].&#39;]
+    Key: product, Value: [&#39;putative transcriptional regulator&#39;]
+    Key: protein_id, Value: [&#39;NP_995575.1&#39;]
+    Key: transl_table, Value: [&#39;11&#39;]
+    Key: translation, Value: [&#39;MRTLDEVIASRSPESQTRIKEMADEMILEVGLQMMREELQLSQKQVAEAMGISQPAVTKLEQRGNDLKLATLKRYVEAMGGKLSLDVELPTGRRVAFHV&#39;]
+
+type: CDS
+location: [8087:8360](-)
+qualifiers:
+    Key: codon_start, Value: [&#39;1&#39;]
+    Key: db_xref, Value: [&#39;GI:45478721&#39;, &#39;GeneID:2767714&#39;]
+    Key: locus_tag, Value: [&#39;YP_pPCP10&#39;]
+    Key: note, Value: [&#39;Best Blastp hit = gi|16082688|ref|NP_395235.1| (NC_003132) hypothetical protein [ Yersinia pestis], gi|5763819|emb|CAB53172.1| (AL109969) hypothetical protein [Yersinia pestis]&#39;]
+    Key: product, Value: [&#39;hypothetical protein&#39;]
+    Key: protein_id, Value: [&#39;NP_995576.1&#39;]
+    Key: transl_table, Value: [&#39;11&#39;]
+    Key: translation, Value: [&#39;MADLKKLQVYGPELPRPYADTVKGSRYKNMKELRVQFSGRPIRAFYAFDPIRRAIVLCAGDKSNDKRFYEKLVRIAEDEFTAHLNTLESK&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "zelenkastiot/bio_lab",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./lab_notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="B05.html" title="previous page">💻 Б5: Репликација на секвенца</a>
+    <a class='right-next' id="next-link" href="B07.html" title="next page">💻 Б7: Старт/стоп кодони во произволен CDS</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Кирил Зеленковски<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>

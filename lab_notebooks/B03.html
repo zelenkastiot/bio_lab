@@ -1,0 +1,659 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>💻 Б3: Seq објекти &#8212; Лабораториска вежба Биоинформатика</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script async="async" kind="hypothesis" src="https://hypothes.is/embed.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="💻 Б4: Yersinia pestis ДНА секвенца" href="B04.html" />
+    <link rel="prev" title="💻 Б2: Поврзување со биолошки бази" href="B02.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Лабораториска вежба Биоинформатика</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Вовед
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Лабораториска вежба
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="B01.html">
+   Б1: Парсирање на фајлови
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="B02.html">
+   Б2: Поврзување со биолошки бази
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Б3: Seq објекти
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="B04.html">
+   Б4: Yersinia pestis ДНА секвенца
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="B05.html">
+   Б5: Репликација на секвенца
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="B06.html">
+   Б6: Пронаоѓање на сите CDS
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="B07.html">
+   Б7: Старт/стоп кодони во произволен CDS
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="B08.html">
+   Б8: Транслација на секвенца
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="B09.html">
+   Б9: Мутација на секвенца
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="B10.html">
+   Б10: Креирање на FASTA фајл
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="B11.html">
+   Б11: Предвидување на структурата на оперон со SVM
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="B12.html">
+   Б12: Имплементација на Nussinov функција
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="B13.html">
+   Б13: BioPython за предвидување на секундарна структура
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Екстерни линкови
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference external" href="https://colab.research.google.com/drive/1awuAkJtHOMPezHostnGHZ8sTpMXEDhCI?usp=sharing">
+   Google colab
+   <i class="fas fa-external-link-alt">
+   </i>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference external" href="https://github.com/zelenkastiot/bio_lab">
+   GitHub репозиториум
+   <i class="fas fa-external-link-alt">
+   </i>
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/lab_notebooks/B03.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/zelenkastiot/bio_lab"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/zelenkastiot/bio_lab/issues/new?title=Issue%20on%20page%20%2Flab_notebooks/B03.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/zelenkastiot/bio_lab/edit/main/lab_notebooks/B03.ipynb"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/zelenkastiot/bio_lab/main?urlpath=lab/tree/lab_notebooks/B03.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/drive/1awuAkJtHOMPezHostnGHZ8sTpMXEDhCI?usp=sharing/github/zelenkastiot/bio_lab/blob/main/lab_notebooks/B03.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#complementing-a-strand-of-dna">
+   1. Complementing a Strand of DNA
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#transcribing-dna-into-rna">
+   2. Transcribing DNA into RNA
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#translating-rna-into-protein">
+   3. Translating RNA into Protein
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#computing-gc-content">
+   4. Computing GC Content
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#finding-a-motif-in-dna">
+   5. Finding a Motif in DNA
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="seq">
+<h1>💻 Б3: Seq објекти<a class="headerlink" href="#seq" title="Permalink to this headline">¶</a></h1>
+<div class="tip admonition">
+<p class="admonition-title">Опис на барање</p>
+<p>Да се напише пример за работа со Seq објекти, како што е
+опишано во поглавје 3, и да се обрне внимание на процесите
+транскрипција и транслација.</p>
+</div>
+<a class="bg-primary mb-1 reference internal image-reference" href="http://compeau.cbd.cmu.edu/wp-content/uploads/2016/08/rosalindlogo.jpg"><img alt="rosalind" class="bg-primary mb-1 align-right" src="http://compeau.cbd.cmu.edu/wp-content/uploads/2016/08/rosalindlogo.jpg" style="width: 210px; height: 72px;" /></a>
+<p>На <a class="reference external" href="http://rosalind.info/problems/list-view/"><strong>Rosalind</strong></a> има многу интересни проблеми каде мислев дека можеби е интересно да се обидам да ги решам со користење на <code>Bio.Seq</code> објекти. За ова барање ги решив точно следните проблеми:</p>
+<ol class="simple">
+<li><p><strong>Complementing a Strand of DNA</strong>: <a class="reference external" href="http://rosalind.info/problems/revc/">http://rosalind.info/problems/revc/</a></p></li>
+<li><p><strong>Transcribing DNA into RNA:</strong> <a class="reference external" href="http://rosalind.info/problems/rna/">http://rosalind.info/problems/rna/</a></p></li>
+<li><p><strong>Translating RNA into Protein:</strong> <a class="reference external" href="http://rosalind.info/problems/prot/">http://rosalind.info/problems/prot/</a></p></li>
+<li><p><strong>Computing GC Content</strong>: <a class="reference external" href="http://rosalind.info/problems/gc/">http://rosalind.info/problems/gc/</a></p></li>
+<li><p><strong>Finding a Motif in DNA</strong>: <a class="reference external" href="http://rosalind.info/problems/subs/">http://rosalind.info/problems/subs/</a></p></li>
+</ol>
+<div class="note admonition">
+<p class="admonition-title"><strong>Rosalind</strong> профил</p>
+<p>Профилот каде може да се види дека ги решив: <a class="reference external" href="http://rosalind.info/users/zelenkastiot/">http://rosalind.info/users/zelenkastiot/</a></p>
+</div>
+<div class="section" id="complementing-a-strand-of-dna">
+<h2>1. <a class="reference external" href="http://rosalind.info/problems/revc/">Complementing a Strand of DNA</a><a class="headerlink" href="#complementing-a-strand-of-dna" title="Permalink to this headline">¶</a></h2>
+<p>Овој проблем е поврзан со стрингови од ДНА, каде комплементи се паровите: A-T и C-G.</p>
+<p>Обратен комплемент (reverse complement) од ДНА стринг а стринг формиран со зимање на стрингот во обратен редослед и применување на комплемент, т.е. менување на базните парови со своите комплементарни парови (пример “<em>GTCA</em>” ако е влез, соодветен излез е “<em>TGAC</em>”)</p>
+<ul class="simple">
+<li><p><strong>Влез:</strong> <code>/rosalind/rosalind_revc.txt</code>текст фајл со ДНА стринг со должина од најмногу 1000 базни парови</p></li>
+<li><p><strong>Излез:</strong> Обратен комплемент од стрингот</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">Bio.Seq</span> <span class="kn">import</span> <span class="n">Seq</span> 
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;rosalind/rosalind_revc.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">sample_dataset</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+
+<span class="n">input_dna</span> <span class="o">=</span> <span class="n">Seq</span><span class="p">(</span><span class="n">sample_dataset</span><span class="p">)</span>
+<span class="n">output_rna</span> <span class="o">=</span> <span class="n">input_dna</span><span class="o">.</span><span class="n">reverse_complement</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">output_rna</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>GCTTTGTTAATCGGCTAAAACACTATCTCTCGCACTAGGCAGCCCAAAGTCCTCCATACGGAGCTTGCGTCGTATCGTAGTAGCTGCAATCTACCTGGGCGGTGGTGGATGAGCGTGAGCTAAAGCGGGACATCTGTATGGCAAGTAGTCTGCCGTGAACGAGCCAGCCCCTACGGTGTGGACACGTCCTTCAGGTGGTATGGATACGGACACCACATCTGTAGCTTTTGACGTCAGAGAGAGACGTATGAGGGGCGAGACGAGTGATATCTGCACCACCATGCCGGACACGGCGCAGTGGCCATGTATATTTAACGCCTAGTGCCACGAAACTAGGTTCTCTACACTGACACGTACGCCCACGTGCTCAACCTTATGCTGCACATGTCCGTATTTTGTCAATGACTTTGCCACCTTTTACCTCCGTGGTCCATGCGGAGTTTAGAAGTGTTACGCTTGGAGTAATCTCGCCCCCGTTTGGTGGACTGGCACCCGCAGACAGGCCAGAAAGAGCCCGTCCCTGGCACAGTTCCTGGGATAGTAAGGGAATTTACCGCAACTGGCTCACGCCGTTGGTGAAGCTCAGAGCACGTGCCCAGGCTTAGAGTTTCCGCTTAGATGCTCTACGGTAGCACTAAACCAAAATGTTAGGGAATGCCCGGAAAGTTTAATGTGCTTGCAGATAATCATATGCTATTGACCTAGAGACAGTCGAACGCCTCCTCAGGTTCCTAGCAATCCACTTTTGCAATACACATAACTCTTAGCATTATGACCGGAAGCCTAGCTCCTGTAACACCTCCTCTTGTCGGTCCTAACCTATCATCGTGAGCATTTACGGACACTTTAGTTATGCGCTAGCTAATGATATCTTGTGTCTTTTCTAATCAATGAGGCCGGGTAAAACCGCTGCTGCGAGGAA
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="transcribing-dna-into-rna">
+<h2>2. <a class="reference external" href="http://rosalind.info/problems/rna/">Transcribing DNA into RNA</a><a class="headerlink" href="#transcribing-dna-into-rna" title="Permalink to this headline">¶</a></h2>
+<p>Овој проблем е поврзан со процесот на <em>транскрипција</em> каде идејата е при даден фајл со ДНА стринг преку процесот на <em>транскрипција</em> да се добие соодветната РНА.</p>
+<ul class="simple">
+<li><p><strong>Влез:</strong> <code>/rosalind/rosalind_rna.txt</code> - текст фајл со ДНА стринг со должина од најмногу 1000 базни парови</p></li>
+<li><p><strong>Излез:</strong> РНА стринг добиен од транскрипција на ДНА стрингот</p></li>
+</ul>
+<p><strong>Решение (Со примена на Bio.Seq):</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">Bio.Seq</span> <span class="kn">import</span> <span class="n">Seq</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;rosalind/rosalind_rna.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">sample_dataset</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+
+<span class="n">input_dna</span> <span class="o">=</span> <span class="n">Seq</span><span class="p">(</span><span class="n">sample_dataset</span><span class="p">)</span>
+<span class="n">output_rna</span> <span class="o">=</span> <span class="n">input_dna</span><span class="o">.</span><span class="n">transcribe</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">output_rna</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>GAAGUGCCUUAGUAGCUAACAGAGGUUCGUACAACAGCGAUGACUUUUGACAAGAUACCAGGCUGCGGCGAAUUUGAGAGGAAUGAUUAAGCAUGGCACACGGGGUGCGCAAGGAGUAUUUCGGGGACCGGGACCUCCAGCGUGCGGCGGCUGGUGAGCUGAGCGUACGCGGCGGCAGGGGCCGUUUACACACCAGGUAGGGUUUUAGAGCCGAUAGAAGUCUAGGUAGCCAUAUGUAGGGCAUCUAGAUUUUCAUAGGUCCUAGGCACCUACGAGAUCCCCAACUAACCAUAGCGGUGACGACGGGUGAUGAGAAAAUUCGGUUUGGUACCAAUGAAACGAUGGACAGAGACAACUGCAUAGGGUGCGGCGUGGCCCAAUCUCCUCUCUCCAUCGCGCAGCGGCUUAAUCCAGCGUGCGUUAUCGAUAAAUUCGCGUAGUAGAGUGAAGACUUGGGCUCUUCCGCGAUGAUGCCUUCCUGUCAUAAGGGGACCUUUAGGACAUUCACGGGUACUUUUGCCUUCCACGCGAGAGGUUGUAGUUGCCGGUCAUGUCGGUACGACCUAGAAAAGUAUGAAUGCCAGGCGUGGGGUUCAUGUACGGCACCCGUUGUUCUCGCUGUUUAGGAAUGGCCAAAUAGUACUUUACUAAGGAAGGAAGAAUUUCCUUCACAAUGCAAAGCAGGGACGCUCCCGACCGCACACCGCAGAGAUAAAUGCUUAAACAACGCUCUAUCGACGUAAGAUGGGAUGCAGCCUCAACCUAAGUUGUGCAAUCACUGUAACGGGCCGCAAGUACAAUGUAGAUAGUGCCUGCCCCUUGGCAAUCACCCUUGCGUUUUCGACAUUAGUUGCAGCUGUCGGAUUGACGUCUUAGGAGUCGUGAUACUUUAGGCAAGAGGGUGCGGUGGCGAAGACAGAACACUGCAUGCUACUCGCCAGUCUAUUUCAUUGGUGUCUCGCAAGGU
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Решение (Со операции на стрингови):</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rna</span> <span class="o">=</span> <span class="n">sample_dataset</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;T&quot;</span><span class="p">,</span> <span class="s2">&quot;U&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">output_rna</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>GAAGUGCCUUAGUAGCUAACAGAGGUUCGUACAACAGCGAUGACUUUUGACAAGAUACCAGGCUGCGGCGAAUUUGAGAGGAAUGAUUAAGCAUGGCACACGGGGUGCGCAAGGAGUAUUUCGGGGACCGGGACCUCCAGCGUGCGGCGGCUGGUGAGCUGAGCGUACGCGGCGGCAGGGGCCGUUUACACACCAGGUAGGGUUUUAGAGCCGAUAGAAGUCUAGGUAGCCAUAUGUAGGGCAUCUAGAUUUUCAUAGGUCCUAGGCACCUACGAGAUCCCCAACUAACCAUAGCGGUGACGACGGGUGAUGAGAAAAUUCGGUUUGGUACCAAUGAAACGAUGGACAGAGACAACUGCAUAGGGUGCGGCGUGGCCCAAUCUCCUCUCUCCAUCGCGCAGCGGCUUAAUCCAGCGUGCGUUAUCGAUAAAUUCGCGUAGUAGAGUGAAGACUUGGGCUCUUCCGCGAUGAUGCCUUCCUGUCAUAAGGGGACCUUUAGGACAUUCACGGGUACUUUUGCCUUCCACGCGAGAGGUUGUAGUUGCCGGUCAUGUCGGUACGACCUAGAAAAGUAUGAAUGCCAGGCGUGGGGUUCAUGUACGGCACCCGUUGUUCUCGCUGUUUAGGAAUGGCCAAAUAGUACUUUACUAAGGAAGGAAGAAUUUCCUUCACAAUGCAAAGCAGGGACGCUCCCGACCGCACACCGCAGAGAUAAAUGCUUAAACAACGCUCUAUCGACGUAAGAUGGGAUGCAGCCUCAACCUAAGUUGUGCAAUCACUGUAACGGGCCGCAAGUACAAUGUAGAUAGUGCCUGCCCCUUGGCAAUCACCCUUGCGUUUUCGACAUUAGUUGCAGCUGUCGGAUUGACGUCUUAGGAGUCGUGAUACUUUAGGCAAGAGGGUGCGGUGGCGAAGACAGAACACUGCAUGCUACUCGCCAGUCUAUUUCAUUGGUGUCUCGCAAGGU
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Проверка за излезот:</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">output_rna</span> <span class="o">==</span> <span class="n">rna</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="translating-rna-into-protein">
+<h2>3. <a class="reference external" href="http://rosalind.info/problems/prot/">Translating RNA into Protein</a><a class="headerlink" href="#translating-rna-into-protein" title="Permalink to this headline">¶</a></h2>
+<p>Овој проблем е поврзан со <em>транскрипција</em> од РНА во протеини. 20 најчести аминокиселни се означуваат користејќи ги сите 20 букви од Англиската азбука (сите освен B, J, O, U, X и Z). Стрингови од протеини се создаваат од овие 20 симболи. Овие секвенци заедно со ДНА и РНА секвенците исто така се вика генетски стринг.</p>
+<ul class="simple">
+<li><p><strong>Влез:</strong> <code>/rosalind/rosalind_prot.txt</code>текст фајл со РНА стринг со должина од најмногу 1000 базни парови</p></li>
+<li><p><strong>Излез:</strong> Протеинска секвенца (без стоп кодони)</p></li>
+</ul>
+<p>Следната табeла е таа што се користи за процесот на транслација:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">Bio.Data</span> <span class="kn">import</span> <span class="n">CodonTable</span>
+
+<span class="n">standard_rna_table</span> <span class="o">=</span> <span class="n">CodonTable</span><span class="o">.</span><span class="n">unambiguous_rna_by_name</span><span class="p">[</span><span class="s2">&quot;Standard&quot;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">standard_rna_table</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Table 1 Standard, SGC0
+
+  |  U      |  C      |  A      |  G      |
+--+---------+---------+---------+---------+--
+U | UUU F   | UCU S   | UAU Y   | UGU C   | U
+U | UUC F   | UCC S   | UAC Y   | UGC C   | C
+U | UUA L   | UCA S   | UAA Stop| UGA Stop| A
+U | UUG L(s)| UCG S   | UAG Stop| UGG W   | G
+--+---------+---------+---------+---------+--
+C | CUU L   | CCU P   | CAU H   | CGU R   | U
+C | CUC L   | CCC P   | CAC H   | CGC R   | C
+C | CUA L   | CCA P   | CAA Q   | CGA R   | A
+C | CUG L(s)| CCG P   | CAG Q   | CGG R   | G
+--+---------+---------+---------+---------+--
+A | AUU I   | ACU T   | AAU N   | AGU S   | U
+A | AUC I   | ACC T   | AAC N   | AGC S   | C
+A | AUA I   | ACA T   | AAA K   | AGA R   | A
+A | AUG M(s)| ACG T   | AAG K   | AGG R   | G
+--+---------+---------+---------+---------+--
+G | GUU V   | GCU A   | GAU D   | GGU G   | U
+G | GUC V   | GCC A   | GAC D   | GGC G   | C
+G | GUA V   | GCA A   | GAA E   | GGA G   | A
+G | GUG V   | GCG A   | GAG E   | GGG G   | G
+--+---------+---------+---------+---------+--
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Решение:</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">Bio.Seq</span> <span class="kn">import</span> <span class="n">Seq</span> 
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;rosalind/rosalind_prot.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">sample_dataset</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+
+<span class="n">messenger_rna</span> <span class="o">=</span> <span class="n">Seq</span><span class="p">(</span><span class="n">sample_dataset</span><span class="p">)</span>
+<span class="n">protein_seq</span> <span class="o">=</span> <span class="n">messenger_rna</span><span class="o">.</span><span class="n">translate</span><span class="p">(</span><span class="n">to_stop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">protein_seq</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>METQHTLPCNCRELDKTGSHVVRSGLAYVFAHHITLYRASYGMVSLLSRGHTSGTLLRPMASIRQLCQILDINKLKNQDVLLRYPNGVGLRSVWTSYVVIIFQRWSRRANPLSVIAVLTVYLDMFRGNCSQRRDGRSSDYFYQTSSRPCLLLGAYSLGAIPVTPLNQTTVPPIRCLALQGMQNTAGFAAIESVYRTTCRQLNQREGLSTPSRLRELIWPARYLPVRCECNNGLNTVYSVTVRISSKATTIRTCCRPTYYLLEVMLTRPDSGERTRRAAKYHKHDHIPSARRARRRRVGNPFNTAKTVYGRKDATVHSSSTLAFTSCEGHGGPACHESLASSTARGRLVTKSNKSGPSRRAILFIPQLIEHIMSMERGQWTFTNPSASTRGTKSWGPSWDKRSPGLKPPVAVGIRTRLYGPVLYRMNDRPLMSHIAYGAQSYNQLFRRKCEILFLSPAGPWSACRSQRMLNTTGSCDTFVDAALTLSLYTVNVWEPISNTDPITRAPLVLSRQINSEGIGIHNRPSTSIRVCTGTSNRIQHNILDSGSDLMATPVCDLRGLVCSDRAELPIHSPGGKASSLRWTPSNRPNGNIYSRYASLSDCVLCCSRRLETQVSRQSPRMIRDLLSGFTDMRNVWDRVSCLDAARRALGATSRSTFAGERRWCLVSNVSRKRLSFTTDFISIRTQHGIPSNSLSTNKGSRDTPVCAGDDVSVECPRKESKAKIKFLVLGGVRGSLTGRRKISMLDPTKSSRALAAMGTLVIRIMAVVDDWISSPACTHQDTQLEDLNWVTETWAFRAVGIGLSSAQYHVHRGQRTQHTAARCVLPRRRVRTDDKPIGYIGDRDRPVEDSNGSCSECGRRTERCRNRATRLLTYTRKQLLITGRHNQIRLEIPRLGARCCHYILQVQPQPLSISKLLLENFFGTQTAPDTLSLPSSQDMLPINRPLRFVNIQWRDLPIRGALQATLTLGALLSPFGPCFPMFVSKRPSQFRFNGASSLSGFTYYIIRGCRRSASKREHTPWHLKLPTTHPSPQLVPDPANLKCTKWKWANRTRVLAKTDCCFNAVGRRPASAYHMKMPSQNLSRHIVKKSLVTVGEASQVEHHCINVKVMAKDTGLSGATILWSFKVLRCFVECRPSHRRSGRMLIQFVGAFRNLRLGMRLVSGVDCTFLHLLKISLWSGVSGPERRMHGWLQIGATPRRARLNAKTNLLHLRETDVQTVPTDTAVGSGPLIIVESTALIAVVPEMTIALCQREMVFLYRCRGSQNNAPGRGQVSKHRPQPSKSQGAYRPRSILSCSPVSAPYSTSVPDSRECRESQPTTALRNYRVSGIIAGASASTLNYLTGSCVLFLLRTRCHVAWRAANTTNVDSRSYLPAARLTTSLGEIWIARVEKLRLSNARTALADAVSPNCPSNTFRCPTSFLGNAHLRMYTMLTWFIPLTVSVKGYTGFLNAQVASTDRSKECGSVHGLAMVAWEYAALVVSWRLQGVAILMQLKRIVQITITSTFGRIVCCTKPHLKHFGPGGPRMLSSACIWRGARWINAPARAPESLAHASAGVTRVFSLRNRPSQLHTIHGTACNVKGNEAKHVPNQYPTGGSENVYPPMLIPVCIGTDGDKDHTVMLGAGSLPPRRGGCKSQFTTTLSGTLLDPLALCSSTIVAPVVVANKTRRPRRRSIVNLAGKRQARHRDEVLNTGHALRASHSFVPPCHVPHPGKSPFTRTDHNVVGGHTGFSCRPRKDRGISNAQLESLDPGNLRAQVPLVDALRLSGLLGHSVKLNRYWFVAAYHLGRVGSSELRTAQPTYRGAVDIGNSWGTAGFKSRRLRQSSDKAYGARRLTSEVSNTRVSLPMHYVSIHCEGLTDHHAQRSLKNTSLIRPSRDSRRLPRTSENKQILPRPSCRLSHWPSNTHPGAPTSVNPYLRHRGIRDHCAPRCAGRTTYCEQSAGIFELAHAGEKATIHKPIRWDIEAGLIGCCVCSGAPYTNDLYASPRLLRVPKRRLRCLIALSRSHYILTPINMWENGTNNAEFSGINGTVGIAHDDSAYKGYRPADSQATRRSDTGWCLIPDRLWSKDYLVPFSLTYDDTTTACTALTFDPVRKSLGVGLFSQHHESNLPIPVMEASTAYVKKIGIRTAVSQAGDGAFTSLVADRRIKLGLKFILLLGLVYWFNIRNKPLCRMAKSWRFLFNLSATSSKSFAIADRGSGLEIADKIRDFTGRSTWRMVCSVLQVNERGNNYITDMDALWSYYPRYVIGRGIVVKKCSFPAEAKRDAMTEIGTDDYAKEGTDLLIPSGYGNETSCSSGAEDPYPPLTMWSGGLRILMQPNLCQYKSGTTSQGYFCIFHFGSPLAVSSHWSSSTGRRPPPLFSALQHIPVKLLTTRINACAGDYHDNVPWPPSGYSVSSLYCSSTTRLAHFLGQEFHELRRPWLIEGLPSSIEASCQQTQQDCYRRPAAPIFYSVLKLALVPLRPIIVGGLGCLEPAIVYSYFTTNLTRRVGPRSENLYLRLLRVVDTVTCNNCGKLGTPDLCYCSDMLLKLNRSELESVHWVCRLSGPENSSKHISTLSDSPKFLWDYYVNCSATVTSKRPMSRAGACSHRRSHVGHTSTDVKSVRSLLGCVLRLTVWSRIFGARRWRETQGRVVRSLHLRRRIFPDWSGHGLRLSCHDSRDYVVRAIRARSYEGSLIFLSSILTACLCQQCLAQERRQRPLWDGTQPTPVLRIVHDCTRPPGRFPLDCSPSVPMPLRDMHICAIHSKYSTETCSRTSIGELRTPQPEYIPERWQVFGGLERSIGDLTSVLHWFDSGYLRHNISIYPRIGRRRRSVIMTAFACIRLYRIQTVAVCFSGIACKAREKTTHSFGFLSLDEHQWSELASTTTDNCFRALSGVTAIYVRGTLLSRAECARDLESIEPHCVRSTHRRRYVRESWAVMRFTRMRSGKRFFPLSVYNLVQGDQVNKLDQSRSGSNMDWWQEVTEGPSNTIKNLSDYSPDLGASNEGLRRVWLSTIFIFEEIAQISFLPLGVKPCYPLSHPFENLPSVILNSAAERGVGPGSEPHRPPRMGGKVSSCNLRGSREVIFYISCCGTGIKPGKKAHRLRIHFPPFKTRFPTSRSLRYALARSTTNIRRSLNSIKDDQFLDSWTAGAIKSYWSSIVWGARDMTRRRELIYQCTTPG
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="computing-gc-content">
+<h2>4. <a class="reference external" href="http://rosalind.info/problems/gc/">Computing GC Content</a><a class="headerlink" href="#computing-gc-content" title="Permalink to this headline">¶</a></h2>
+<p>Овој проблем е поврзан со процентот на GC во ДНА секвенца.</p>
+<ul class="simple">
+<li><p><strong>Влез:</strong> <code>/rosalind/rosalind_gc.txt</code>FASTA фајл со неколку ID и своите секвенци</p></li>
+<li><p><strong>Излез:</strong> Најголемиот GC процент од целиот FASTA фајл</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dict_records</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">for</span> <span class="n">seq_record</span> <span class="ow">in</span> <span class="n">SeqIO</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="s2">&quot;rosalind/rosalind_gc.fasta&quot;</span><span class="p">,</span> <span class="s2">&quot;fasta&quot;</span><span class="p">):</span>
+    <span class="n">seq_temp</span> <span class="o">=</span> <span class="n">seq_record</span><span class="o">.</span><span class="n">seq</span>
+    <span class="n">dict_records</span><span class="p">[</span><span class="n">seq_record</span><span class="o">.</span><span class="n">id</span><span class="p">]</span> <span class="o">=</span> <span class="mi">100</span> <span class="o">*</span> <span class="nb">float</span><span class="p">(</span><span class="n">seq_temp</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&quot;G&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">seq_temp</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&quot;C&quot;</span><span class="p">))</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">seq_temp</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dict_records</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;Rosalind_0344&#39;: 49.22907488986784,
+ &#39;Rosalind_2995&#39;: 50.100806451612904,
+ &#39;Rosalind_0589&#39;: 51.345029239766085,
+ &#39;Rosalind_6146&#39;: 46.45006016847172,
+ &#39;Rosalind_7650&#39;: 51.56081808396125,
+ &#39;Rosalind_1350&#39;: 48.55670103092783,
+ &#39;Rosalind_1601&#39;: 51.83374083129584,
+ &#39;Rosalind_1751&#39;: 48.466257668711656,
+ &#39;Rosalind_1226&#39;: 50.89179548156956}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">max_value</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">dict_records</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>  <span class="c1"># најголема вредност</span>
+<span class="n">max_keys</span> <span class="o">=</span> <span class="p">[</span><span class="n">k</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">dict_records</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="k">if</span> <span class="n">v</span> <span class="o">==</span> <span class="n">max_value</span><span class="p">]</span> <span class="c1"># клуч со максимална вредност</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">max_keys</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">max_value</span><span class="si">:</span><span class="s1">.6f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Rosalind_1601
+51.833741
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="finding-a-motif-in-dna">
+<h2>5. <a class="reference external" href="http://rosalind.info/problems/subs/">Finding a Motif in DNA</a><a class="headerlink" href="#finding-a-motif-in-dna" title="Permalink to this headline">¶</a></h2>
+<p>Овој проблем е поврзан со стрингови од ДНА и подстрингови од ДНА, познати како Motif. Наоѓање на вакви интерави од ДНА во геноми од различни организми (најчесто различен вид) покажува кон тоа дека тој подинтервал има иста функција кај двата организми.</p>
+<p>Motif е често споделувано парче од DNA, честа задача во молекуларна биологија е да се бараат вакви подстрингови.</p>
+<ul class="simple">
+<li><p><strong>Влез:</strong> <code>/rosalind/rosalind_subs.txt</code> текст фајл со ДНА (прв ред), подстринг т.е. парче ДНА (втор ред)</p></li>
+<li><p><strong>Излез:</strong> Сите позиции каде се јавува тој подстринг</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;rosalind/rosalind_subs.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
+
+<span class="n">Lines</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+
+<span class="n">dna_string</span> <span class="o">=</span> <span class="n">Lines</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+<span class="n">sub_string</span> <span class="o">=</span> <span class="n">Lines</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+
+<span class="n">found</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="n">k</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">while</span> <span class="n">k</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">dna_string</span><span class="p">)</span><span class="o">-</span><span class="mi">3</span><span class="p">:</span>
+    <span class="n">current_codon</span> <span class="o">=</span> <span class="n">dna_string</span><span class="p">[</span><span class="n">k</span><span class="p">:</span><span class="n">k</span><span class="o">+</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">sub_string</span><span class="p">))]</span>
+    <span class="k">if</span> <span class="n">current_codon</span> <span class="o">==</span> <span class="n">sub_string</span><span class="p">:</span>
+        <span class="n">found</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">k</span><span class="o">+=</span><span class="mi">1</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">found</span><span class="p">)):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">found</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>13 75 118 125 175 213 220 255 285 292 299 395 473 480 580 587 594 704 728 739 765 874 
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "zelenkastiot/bio_lab",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./lab_notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="B02.html" title="previous page">💻 Б2: Поврзување со биолошки бази</a>
+    <a class='right-next' id="next-link" href="B04.html" title="next page">💻 Б4: Yersinia pestis ДНА секвенца</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Кирил Зеленковски<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>

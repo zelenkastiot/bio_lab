@@ -1,0 +1,673 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>💻 Б8: Транслација на секвенца &#8212; Лабораториска вежба Биоинформатика</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script async="async" kind="hypothesis" src="https://hypothes.is/embed.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="💻 Б9: Мутација на секвенца" href="B09.html" />
+    <link rel="prev" title="💻 Б7: Старт/стоп кодони во произволен CDS" href="B07.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Лабораториска вежба Биоинформатика</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Вовед
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Лабораториска вежба
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="B01.html">
+   Б1: Парсирање на фајлови
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="B02.html">
+   Б2: Поврзување со биолошки бази
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="B03.html">
+   Б3: Seq објекти
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="B04.html">
+   Б4: Yersinia pestis ДНА секвенца
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="B05.html">
+   Б5: Репликација на секвенца
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="B06.html">
+   Б6: Пронаоѓање на сите CDS
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="B07.html">
+   Б7: Старт/стоп кодони во произволен CDS
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Б8: Транслација на секвенца
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="B09.html">
+   Б9: Мутација на секвенца
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="B10.html">
+   Б10: Креирање на FASTA фајл
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="B11.html">
+   Б11: Предвидување на структурата на оперон со SVM
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="B12.html">
+   Б12: Имплементација на Nussinov функција
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="B13.html">
+   Б13: BioPython за предвидување на секундарна структура
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Екстерни линкови
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference external" href="https://colab.research.google.com/drive/1awuAkJtHOMPezHostnGHZ8sTpMXEDhCI?usp=sharing">
+   Google colab
+   <i class="fas fa-external-link-alt">
+   </i>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference external" href="https://github.com/zelenkastiot/bio_lab">
+   GitHub репозиториум
+   <i class="fas fa-external-link-alt">
+   </i>
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/lab_notebooks/B08.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/zelenkastiot/bio_lab"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/zelenkastiot/bio_lab/issues/new?title=Issue%20on%20page%20%2Flab_notebooks/B08.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/zelenkastiot/bio_lab/edit/main/lab_notebooks/B08.ipynb"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/zelenkastiot/bio_lab/main?urlpath=lab/tree/lab_notebooks/B08.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/drive/1awuAkJtHOMPezHostnGHZ8sTpMXEDhCI?usp=sharing/github/zelenkastiot/bio_lab/blob/main/lab_notebooks/B08.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id2">
+   Траснлација 1
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id3">
+   Траснлација 2
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id4">
+   Траснлација 3
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id5">
+   Транслација 4
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="id1">
+<h1>💻 Б8: Транслација на секвенца<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<div class="tip admonition">
+<p class="admonition-title">Опис на барање</p>
+<p>Од произволниот CDS што го избравте добивте стоп/старт кодони. Направете транслација за да ги добиете сите можни
+протеински секвенции.</p>
+</div>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">Bio</span> <span class="kn">import</span> <span class="n">SeqIO</span>
+<span class="kn">from</span> <span class="nn">Bio.Data</span> <span class="kn">import</span> <span class="n">CodonTable</span>
+
+<span class="n">gene_record</span> <span class="o">=</span> <span class="n">SeqIO</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s2">&quot;yersinia-pestis-fasta/NC_005816.gb&quot;</span><span class="p">,</span> <span class="s2">&quot;genbank&quot;</span><span class="p">)</span>
+<span class="n">mito_table</span> <span class="o">=</span> <span class="n">CodonTable</span><span class="o">.</span><span class="n">unambiguous_rna_by_id</span><span class="p">[</span><span class="mi">11</span><span class="p">]</span>
+
+<span class="c1"># Читање на &#39;pim&#39;</span>
+<span class="n">sub_record</span> <span class="o">=</span> <span class="n">gene_record</span><span class="p">[</span><span class="mi">4342</span><span class="p">:</span><span class="mi">4780</span><span class="p">]</span>
+<span class="c1"># Транскрипција на &#39;pim&#39;</span>
+<span class="n">sub_rna</span> <span class="o">=</span> <span class="n">sub_record</span><span class="o">.</span><span class="n">seq</span><span class="o">.</span><span class="n">transcribe</span><span class="p">()</span>
+<span class="c1"># Листи за позиции на старт и стоп кодони за &#39;pim&#39;</span>
+<span class="n">start_codon_positions</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">stop_codon_positions</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="c1"># Листи за имињата на најдените кодони за &#39;pim&#39;</span>
+<span class="n">start_found</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">stop_found</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="c1"># Конверзија во стринг, за полесна работа</span>
+<span class="n">rna_string</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">sub_rna</span><span class="p">)</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Идеја на пребарување: </span>
+<span class="sd">- Започни од 0 и движи се до целата секвенца -2</span>
+<span class="sd">- Земи го моменталниот триплет </span>
+<span class="sd">- Провери дали е во старт кодоните -&gt; Ако е зачувај торка (позиција, триплет)</span>
+<span class="sd">- Ако не, провери дали е во стоп кодоните -&gt; Ако е зачувај торка (позиција, триплет)</span>
+<span class="sd">- Зголеми го бројачот </span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="n">k</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">while</span> <span class="n">k</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">rna_string</span><span class="p">)</span><span class="o">-</span><span class="mi">2</span><span class="p">:</span>
+    <span class="c1"># екстрахирај моментална три-нуклеотидна суб-секвенца</span>
+    <span class="n">current_codon</span> <span class="o">=</span> <span class="n">rna_string</span><span class="p">[</span><span class="n">k</span><span class="p">:</span><span class="n">k</span><span class="o">+</span><span class="mi">3</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">current_codon</span> <span class="ow">in</span> <span class="n">mito_table</span><span class="o">.</span><span class="n">start_codons</span><span class="p">:</span>
+        <span class="n">start_found</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">k</span><span class="p">,</span> <span class="n">current_codon</span><span class="p">))</span>
+    <span class="k">elif</span> <span class="n">current_codon</span> <span class="ow">in</span> <span class="n">mito_table</span><span class="o">.</span><span class="n">stop_codons</span><span class="p">:</span>
+        <span class="n">stop_found</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">k</span><span class="p">,</span> <span class="n">current_codon</span><span class="p">))</span>
+    <span class="n">k</span> <span class="o">+=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Во претходното барање (💻 Б7) ги доззнавме сите <strong>64 старт кодони</strong> и <strong>21 стоп кодони</strong>. Овие две бројки ни укажуваат на тоадека можеме да комбинираме на различни начини за да екстрахираме <em>протеински</em> секвенци т.е. да ги добиеме соодветните амино-киселени за протеинската секвенца од тоа парче на РНА.</p>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="caution admonition">
+<p class="admonition-title">Важно за <strong>транслација</strong></p>
+<p>Многу важен услов при транслација меѓу старт/стоп кодони е тоа дека позицијата каде е пронајден старт кодонот, првата позиција на РНА секвенцата која ја преведуваме, мора да е помал број (позиција) од таа на стоп кодонот.</p>
+<p>Ова е повеќе логичка грешка што може да настане доколку сакаме да ги најдеме сите можно комбинации од старт и стоп кодони (мора да имаме услов кој би проверувал позициите да се соодветни.</p>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Вкупен број на старт кодони: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">start_found</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Старт кодон со позиција: </span><span class="si">{</span><span class="n">start_found</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Вкупен број на стоп кодони: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">stop_found</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Стоп кодон со позиција: </span><span class="si">{</span><span class="n">stop_found</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Вкупен број на старт кодони: 64
+Старт кодон со позиција: [(0, &#39;AUG&#39;), (12, &#39;AUG&#39;), (15, &#39;AUC&#39;), (26, &#39;AUU&#39;), (29, &#39;UUG&#39;), (33, &#39;UUG&#39;), (42, &#39;AUA&#39;), (44, &#39;AUU&#39;), (50, &#39;AUC&#39;), (53, &#39;AUC&#39;), (58, &#39;GUG&#39;), (64, &#39;UUG&#39;), (80, &#39;AUA&#39;), (82, &#39;AUA&#39;), (96, &#39;AUC&#39;), (99, &#39;UUG&#39;), (113, &#39;AUU&#39;), (118, &#39;AUA&#39;), (124, &#39;UUG&#39;), (130, &#39;AUU&#39;), (134, &#39;AUU&#39;), (135, &#39;UUG&#39;), (142, &#39;AUG&#39;), (147, &#39;AUC&#39;), (151, &#39;AUG&#39;), (190, &#39;AUA&#39;), (192, &#39;AUU&#39;), (216, &#39;AUU&#39;), (217, &#39;UUG&#39;), (225, &#39;AUC&#39;), (229, &#39;AUA&#39;), (242, &#39;AUG&#39;), (246, &#39;AUG&#39;), (249, &#39;AUA&#39;), (251, &#39;AUC&#39;), (254, &#39;AUU&#39;), (261, &#39;AUA&#39;), (270, &#39;AUU&#39;), (280, &#39;AUG&#39;), (286, &#39;AUA&#39;), (289, &#39;CUG&#39;), (293, &#39;CUG&#39;), (298, &#39;UUG&#39;), (304, &#39;AUU&#39;), (315, &#39;AUA&#39;), (329, &#39;AUA&#39;), (331, &#39;AUG&#39;), (339, &#39;AUA&#39;), (343, &#39;AUC&#39;), (354, &#39;AUA&#39;), (368, &#39;AUC&#39;), (370, &#39;CUG&#39;), (381, &#39;AUA&#39;), (387, &#39;GUG&#39;), (396, &#39;AUA&#39;), (404, &#39;AUC&#39;), (408, &#39;AUC&#39;), (412, &#39;CUG&#39;), (416, &#39;UUG&#39;), (421, &#39;CUG&#39;), (425, &#39;AUA&#39;), (427, &#39;AUU&#39;), (430, &#39;AUC&#39;), (433, &#39;AUU&#39;)]
+
+Вкупен број на стоп кодони: 21
+Стоп кодон со позиција: [(13, &#39;UGA&#39;), (109, &#39;UAG&#39;), (115, &#39;UAA&#39;), (194, &#39;UAA&#39;), (230, &#39;UAA&#39;), (247, &#39;UGA&#39;), (256, &#39;UAA&#39;), (265, &#39;UAG&#39;), (272, &#39;UAA&#39;), (281, &#39;UGA&#39;), (299, &#39;UGA&#39;), (313, &#39;UAA&#39;), (316, &#39;UAA&#39;), (334, &#39;UAG&#39;), (355, &#39;UAA&#39;), (364, &#39;UAA&#39;), (382, &#39;UAG&#39;), (385, &#39;UAG&#39;), (388, &#39;UGA&#39;), (397, &#39;UAA&#39;), (435, &#39;UAA&#39;)]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Сега бидејќи има голем број на комбинации ќе изберам неколку (3-4) за да демонстрирам како изгледа процесот на <strong>транслација</strong> од таа РНА-субсеквенца, која:</p>
+<ul class="simple">
+<li><p><strong>почнува</strong> на позицијата на <u>првата база</u> од избраниот <u>старт кодон</u></p></li>
+<li><p><strong>завршува</strong> на позицијата на <u>последната база</u> од избраниот <u>стоп кодон</u> (позиција + 2; за последните 2 бази од стоп кодонот)</p></li>
+</ul>
+<div class="section" id="id2">
+<h2>Траснлација 1<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="note admonition">
+<p class="admonition-title">Екстрахирана секвенца 1</p>
+<p><code>protein_seq1</code></p>
+<ul class="simple">
+<li><p>Старт кодон (0, ‘AUG’)</p></li>
+<li><p>Стоп кодон (13, ‘UGA’)</p></li>
+</ul>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Старт кодон: </span><span class="si">{</span><span class="n">start_found</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Стоп кодон: </span><span class="si">{</span><span class="n">stop_found</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">read_seq1</span> <span class="o">=</span> <span class="n">sub_rna</span><span class="p">[</span><span class="n">start_found</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]:</span><span class="n">stop_found</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="mi">2</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Екстрахирана секвенца од избраните кодони: </span><span class="si">{</span><span class="n">read_seq1</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Должина: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">read_seq1</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Старт кодон: (0, &#39;AUG&#39;)
+Стоп кодон: (13, &#39;UGA&#39;)
+Екстрахирана секвенца од избраните кодони: AUGGGAGGGGGAAUG
+Должина: 15
+</pre></div>
+</div>
+</div>
+</div>
+<p>Излез по преведување:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">protein_seq1</span> <span class="o">=</span> <span class="n">read_seq1</span><span class="o">.</span><span class="n">translate</span><span class="p">(</span><span class="n">table</span><span class="o">=</span><span class="s1">&#39;Bacterial&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Протеинска секвенца 1:</span><span class="se">\n</span><span class="si">{</span><span class="n">protein_seq1</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Должина: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">protein_seq1</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Протеинска секвенца 1:
+MGGGM
+Должина: 5
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id3">
+<h2>Траснлација 2<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="note admonition">
+<p class="admonition-title">Екстрахирана секвенца 2</p>
+<p><code>protein_seq2</code></p>
+<ul class="simple">
+<li><p>Старт кодон (315, ‘AUC’)</p></li>
+<li><p>Стоп кодон (334, ‘UAG’)</p></li>
+</ul>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Старт кодон: </span><span class="si">{</span><span class="n">start_found</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Стоп кодон: </span><span class="si">{</span><span class="n">stop_found</span><span class="p">[</span><span class="mi">13</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">read_seq2</span> <span class="o">=</span> <span class="n">sub_rna</span><span class="p">[</span><span class="n">start_found</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">0</span><span class="p">]:</span><span class="n">stop_found</span><span class="p">[</span><span class="mi">12</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="mi">2</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Екстрахирана секвенца од избраните кодони: </span><span class="si">{</span><span class="n">read_seq2</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Должина: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">read_seq2</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Старт кодон: (15, &#39;AUC&#39;)
+Стоп кодон: (334, &#39;UAG&#39;)
+Екстрахирана секвенца од избраните кодони: AUCUCAAAGUUAUUUUGCUUGGCUCUCAUAUUUUUAUCAUCAAGUGGCCUUGCAGAAAAAAACACAUAUACAGCAAAAGACAUCUUGCAAAACCUAGAAUUAAAUACCUUUGGCAAUUCAUUGUCUCAUGGCAUCUAUGGGAAACAGACAACCUUCAAGCAAACCGAGUUUACAAAUAUUAAAAGCAACACCAAAAAACACAUUGCACUUAUCAAUAAAGACAACUCAUGGAUGAUAUCAUUAAAAAUACUAGGAAUUAAGAGAGAUGAGUAUACUGUCUGUUUUGAAGAUUUCUCUCUAAUA
+Должина: 303
+</pre></div>
+</div>
+</div>
+</div>
+<p>Излез по преведување:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">protein_seq2</span> <span class="o">=</span> <span class="n">read_seq2</span><span class="o">.</span><span class="n">translate</span><span class="p">(</span><span class="n">table</span><span class="o">=</span><span class="s1">&#39;Bacterial&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Протеинска секвенца 2:</span><span class="se">\n</span><span class="si">{</span><span class="n">protein_seq2</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Должина: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">protein_seq2</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Протеинска секвенца 2:
+ISKLFCLALIFLSSSGLAEKNTYTAKDILQNLELNTFGNSLSHGIYGKQTTFKQTEFTNIKSNTKKHIALINKDNSWMISLKILGIKRDEYTVCFEDFSLI
+Должина: 101
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id4">
+<h2>Траснлација 3<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="note admonition">
+<p class="admonition-title">Екстрахирана секвенца</p>
+<p><code>protein_seq3</code></p>
+<ul class="simple">
+<li><p>Старт кодон (251, ‘AUC’)</p></li>
+<li><p>Стоп кодон  (435, ‘UAA’)</p></li>
+</ul>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Старт кодон: </span><span class="si">{</span><span class="n">start_found</span><span class="p">[</span><span class="mi">34</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Стоп кодон: </span><span class="si">{</span><span class="n">stop_found</span><span class="p">[</span><span class="mi">20</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">read_seq3</span> <span class="o">=</span> <span class="n">sub_rna</span><span class="p">[</span><span class="n">start_found</span><span class="p">[</span><span class="mi">34</span><span class="p">][</span><span class="mi">0</span><span class="p">]:</span><span class="n">stop_found</span><span class="p">[</span><span class="mi">20</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="mi">2</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Екстрахирана секвенца од избраните кодони: </span><span class="si">{</span><span class="n">read_seq3</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Должина: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">read_seq3</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Старт кодон: (251, &#39;AUC&#39;)
+Стоп кодон: (435, &#39;UAA&#39;)
+Екстрахирана секвенца од избраните кодони: AUCAUUAAAAAUACUAGGAAUUAAGAGAGAUGAGUAUACUGUCUGUUUUGAAGAUUUCUCUCUAAUAAGACCGCCAACAUAUGUAGCCAUACAUCCUCUACUUAUAAAAAAAGUAAAAUCUGGAAACUUUAUAGUAGUGAAAGAAAUAAAGAAAUCUAUCCCUGGUUGCACUGUAUAUUAUCAUUA
+Должина: 186
+</pre></div>
+</div>
+</div>
+</div>
+<p>Излез по преведување:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">protein_seq3</span> <span class="o">=</span> <span class="n">read_seq3</span><span class="o">.</span><span class="n">translate</span><span class="p">(</span><span class="n">table</span><span class="o">=</span><span class="s1">&#39;Bacterial&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Протеинска секвенца 3:</span><span class="se">\n</span><span class="si">{</span><span class="n">protein_seq3</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Должина: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">protein_seq3</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Протеинска секвенца 3:
+IIKNTRN*ER*VYCLF*RFLSNKTANICSHTSSTYKKSKIWKLYSSERNKEIYPWLHCILSL
+Должина: 62
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id5">
+<h2>Транслација 4<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="note admonition">
+<p class="admonition-title">Пример 4</p>
+<p><code>protein_seq4</code></p>
+<ul class="simple">
+<li><p>Старт кодон (0, ‘AUG’)</p></li>
+<li><p>Стоп кодон  (435, ‘UAA’)</p></li>
+</ul>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Старт кодон: </span><span class="si">{</span><span class="n">start_found</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Стоп кодон: </span><span class="si">{</span><span class="n">stop_found</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">read_seq4</span> <span class="o">=</span> <span class="n">sub_rna</span><span class="p">[</span><span class="n">start_found</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]:</span><span class="n">stop_found</span><span class="p">[</span><span class="mi">20</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="mi">2</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Екстрахирана секвенца од избраните кодони: </span><span class="si">{</span><span class="n">read_seq4</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Должина: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">read_seq4</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Старт кодон: (0, &#39;AUG&#39;)
+Стоп кодон: (435, &#39;UAA&#39;)
+Екстрахирана секвенца од избраните кодони: AUGGGAGGGGGAAUGAUCUCAAAGUUAUUUUGCUUGGCUCUCAUAUUUUUAUCAUCAAGUGGCCUUGCAGAAAAAAACACAUAUACAGCAAAAGACAUCUUGCAAAACCUAGAAUUAAAUACCUUUGGCAAUUCAUUGUCUCAUGGCAUCUAUGGGAAACAGACAACCUUCAAGCAAACCGAGUUUACAAAUAUUAAAAGCAACACCAAAAAACACAUUGCACUUAUCAAUAAAGACAACUCAUGGAUGAUAUCAUUAAAAAUACUAGGAAUUAAGAGAGAUGAGUAUACUGUCUGUUUUGAAGAUUUCUCUCUAAUAAGACCGCCAACAUAUGUAGCCAUACAUCCUCUACUUAUAAAAAAAGUAAAAUCUGGAAACUUUAUAGUAGUGAAAGAAAUAAAGAAAUCUAUCCCUGGUUGCACUGUAUAUUAUCAUUA
+Должина: 437
+</pre></div>
+</div>
+</div>
+</div>
+<p>Излез по преведување:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">protein_seq4</span> <span class="o">=</span> <span class="n">read_seq4</span><span class="o">.</span><span class="n">translate</span><span class="p">(</span><span class="n">table</span><span class="o">=</span><span class="s1">&#39;Bacterial&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Протеинска секвенца 4:</span><span class="se">\n</span><span class="si">{</span><span class="n">protein_seq4</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Должина: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">protein_seq4</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Протеинска секвенца 4:
+MGGGMISKLFCLALIFLSSSGLAEKNTYTAKDILQNLELNTFGNSLSHGIYGKQTTFKQTEFTNIKSNTKKHIALINKDNSWMISLKILGIKRDEYTVCFEDFSLIRPPTYVAIHPLLIKKVKSGNFIVVKEIKKSIPGCTVYYH
+Должина: 145
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "zelenkastiot/bio_lab",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./lab_notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="B07.html" title="previous page">💻 Б7: Старт/стоп кодони во произволен CDS</a>
+    <a class='right-next' id="next-link" href="B09.html" title="next page">💻 Б9: Мутација на секвенца</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Кирил Зеленковски<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>
